@@ -187,6 +187,8 @@ app.use((req, res, next) => {
 
 app.use("/resurse", express.static(path.join(__dirname,"resurse")))
 
+// app.use("/node_modules", express.static(path.join(__dirname,"node_modules")))
+
 app.get("/favicon.ico", function(req, res){
     res.sendfile(path.join(__dirname, "/resurse/imagini/favicon/favicon.ico"))
 })
