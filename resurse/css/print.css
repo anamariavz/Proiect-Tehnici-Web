@@ -1,0 +1,167 @@
+#watermark,#absolut{
+  display:none;
+}
+
+@media print {
+
+  img {
+    display: none;
+  }
+
+  iframe {
+      display: none;
+  }
+
+  figcaption {
+      display: none;
+  }
+
+  figure {
+    display: none;
+  }
+
+  map {
+    display: none;
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+
+  #link-top {
+      display: none;
+  }
+  .container-iframe {
+      display: none;
+  }
+
+  #video {
+    display: none;
+  }
+
+  #harta_img {
+    display: none;
+  }
+
+  #text-icon {
+    display: none;
+  }
+
+  #hamburger {
+    display: none;
+  }
+
+  #ch-meniu {
+    display: none;
+  }
+
+
+#absolut{
+  position: absolute;
+  display: block;
+  top: 2cm;
+  width: 50%;
+  /* height:20px; */
+  right: 2cm;
+  border: 3px double black;
+  padding: 5px;
+  font-size: 12px;
+  /* overflow: visible; */
+}
+
+/* #absolut::after{
+  content:"Acesta este un proiect scolar";
+  display: block;
+} */
+
+h1{
+  /* page-break-after: always; */
+  margin-top: 50%;
+  text-align:center;
+  margin-left:1cm;
+}
+nav{
+  page-break-after: always;
+  display: block;
+  margin-left: 2cm;
+}
+nav ul.meniu {
+  /* all: unset; */
+  list-style-type: disc;
+  padding-left: 2em;
+  display: block;
+}
+
+nav ul.meniu > li {
+  /* all: unset; */
+  display: list-item;
+  /* list-style-type: disc; */
+  /* margin-left: 1em; */
+  margin-bottom: 0.5em;
+}
+
+nav ul ul {
+  margin-left: 2em;
+  list-style-type: circle;
+}
+
+
+#grid-pag{
+  font-size: 10px;
+  box-sizing:border-box;
+  page-break-before:always;
+  background-color: white;
+  display:block;
+  }
+
+  html, body {
+      width: 210mm;
+      overflow:visible !important;
+  }
+
+  #watermark {
+    position: fixed;
+    display: block;
+    width: 60vw;
+    height: 10vh;
+    text-align: center;
+    opacity: 0.3;
+    font-size: 30px;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+#watermark p{
+    text-decoration: none;
+}
+
+#end{
+  page-break-before: always;
+}
+}
+
+@page {
+  size: A4 portrait;
+  margin-bottom:2cm;
+  margin-top:2cm;
+  counter-increment: page;
+    
+}
+@page:left{
+
+  margin-left:2cm;
+  margin-right:1cm;
+  border-radius: 20cm;
+}
+@page:right{
+
+  margin-right:2cm;
+  margin-left:1cm;
+}
+
+
+

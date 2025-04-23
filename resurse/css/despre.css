@@ -1,0 +1,15 @@
+#video-vtt {
+    width: 100%;
+    max-width: 800px;
+    min-width: 300px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  video::cue {
+    background: rgba(255, 255, 255, 0.7); /* fundal deschis */
+    color: #000;                         /* text închis */
+    font-size: 1rem;
+    text-shadow: none;                   /* fără umbre ciudate */
+  }
+  

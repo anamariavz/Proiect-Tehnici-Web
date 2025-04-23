@@ -1,0 +1,102 @@
+#hamburger {
+  display: block;
+}
+
+.hamburger-meniu {
+  position: relative;
+  width: 30px;
+  height: 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hamburger-meniu .bar {
+  height: 4px;
+  width: 100%;
+  background-color: var(--culoare-inchisa1);
+  border-radius: 2px;
+  transition: all 0.4s ease;
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+/* Meniul */
+ul.meniu {
+  display: none; /* Meniul este ascuns de la început */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  background-color: var(--culoare-deschisa);
+  position: absolute;
+  top: 100%; /* Plasează meniul sub hamburger */
+  left: 0;
+  z-index: 20;
+}
+
+/* Selectorul corect pentru afișarea meniului */
+#ch-menu:checked ~ ul.meniu {
+  display: block;
+}
+
+/* Submeniurile */
+ul.meniu ul {
+  position: relative;
+  display: none;
+  width: 100%;
+}
+
+ul.meniu li {
+  margin: 0;
+  width: 100%;
+  position: relative;
+}
+
+ul.meniu li:hover > ul {
+  display: block;
+}
+
+/* Animatie hamburger */
+@keyframes animate-bar {
+  0% {
+    background-color: var(--culoare-inchisa1);
+    transform: translateX(0) scaleX(1);
+    opacity: 1;
+  }
+  50% {
+    background-color: var(--culoare1);
+    transform: translateX(10px) scaleX(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    background-color: var(-culoare2);
+    transform: translateX(0) scaleX(1);
+    opacity: 1;
+  }
+}
+
+#ch-menu:checked ~ label .bar:nth-child(1) {
+  animation: animate-bar 0.6s ease forwards;
+  animation-delay: 0ms;
+}
+#ch-menu:checked ~ label .bar:nth-child(2) {
+  animation: animate-bar 0.6s ease forwards;
+  animation-delay: 300ms;
+}
+#ch-menu:checked ~ label .bar:nth-child(3) {
+  animation: animate-bar 0.6s ease forwards;
+  animation-delay: 600ms;
+}
+
+/* Responsivitate pentru ecrane mici */
+@media (max-width: 768px) {
+  ul.meniu {
+    display: none;
+  }
+  
+  #ch-menu:checked ~ ul.meniu {
+    display: block;
+  }
+}

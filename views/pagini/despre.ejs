@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <title>HappyDent</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- va fi explicat când ajungem la CSS -->
+        <meta name="keywords" content="medici, stomatolog, tratamente, sănătate orală"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+        <meta name="description" content="Clinica noastră te întâmpină cu o echipă de profesioniști și tratamente personalizate."><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+        <meta name="author" content="Ana-Maria Vizireanu">  <!-- autorul/autoarea paginii--> 
+        <link rel="stylesheet" href="resurse/css/despre.css" />
+        
+        <%- include("../fragmente/head.ejs")  %>
+    </head>
+    <body>
+        <%- include("../fragmente/header.ejs")  %>
+
+        <main>
+            A doua pagina</br>
+            
+                <video id = "video-vtt" width="320" height="240" controls poster="resurse/imagini/compozit-dentar.jpg">
+                    <source src="resurse/video/videoclip.mp4" type="video/mp4">
+                    <source src="resurse/video/videoclip.ogv" type="video/ogv">
+                    <track default src="resurse/subtitrari-ro.vtt" kind="subtitles" srclang="ro" label="Romana" />
+                    <track  src="resurse/subtitrari-en.vtt" kind="subtitles" srclang="en" label="English" />
+                    <p>Sorry, subtitles are not available.</p>
+
+                </video>
+                
+              
+        </main>
+        <!-- <script>
+            const video = document.getElementById("video-vtt");
+            const tracks = video.textTracks;
+          
+            // Activează limba română (primul track)
+            tracks[0].mode = "showing";
+          
+            // Dacă vrei să le vezi în consolă
+            for (let i = 0; i < tracks.length; i++) {
+              console.log("Track " + i + ": " + tracks[i].label);
+            }
+          </script> -->
+          
+        <%- include("../fragmente/footer.ejs")  %>
+        
+
+        <p id="absolut">Acesta este un proiect scolar!</p>
+        
+    </body>
+</html>

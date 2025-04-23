@@ -1,0 +1,582 @@
+/* html{
+    font-size: 18px;
+} */
+
+body{
+    --spatiere-pagina: 80px;
+    --culoare-background1: #FCE3D4;
+    --culoare-deschisa: #F9A68B;
+    --culoare-inchisa1: #691B1E;
+    --culoare-margini: #4B4A49;
+    --culoare1: #B82D28;
+    --culoare2: #F05660;
+    --culoare-background2: #D9D9D9;
+    --culoare4: #8F9597;
+    --culoare-inchisa2: #333433;
+    background-color: var(--culoare-background2);
+    background-size: cover;
+    --padding-text: 15px;
+}
+
+h2{
+    font-size: 1.6rem;
+}
+
+h3{
+    font-size: 1.3rem;
+}
+
+h1 {
+    font-family: "Satisfy", cursive;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--culoare-deschisa);
+
+  }
+
+header.c1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-title {
+    font-size: 2rem;
+}
+
+#video {
+    /* display: flex;
+    flex-direction: column;
+    align-items: flex-end; */
+    /* justify-content: space-between; */
+    /* position: relative; */
+    /* gap:20px; */
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+#icon-dinte{
+    color: var(--culoare-deschisa);
+    font-size: 24px;
+    margin-left: 10px;
+}
+  
+
+#grid-pagina{
+    display: grid;
+    grid-template-areas: "Despre Despre Despre Despre"
+                         "Servicii Servicii Medici Medici"
+                         "harta_img Tarife Medici Medici"
+                         "video Tarife Medici Medici"
+                         "pdf Contact Contact Program_de_lucru";
+    row-gap: 10px;
+    column-gap: 20px;                     
+}
+
+#grid-pagina > *{
+    outline: 2px solid var(--culoare-margini);
+    border-radius: 5px;
+    background-color: var(--culoare-background1);
+    padding: 7px;
+    /* overflow: hidden; */
+    word-wrap: break-word;
+}
+
+#grid-pagina > figure{
+    margin: 0;
+}
+#grid-pagina img{
+    /* width: 100%;
+    max-width: 1200px; */
+    min-width: 150px;
+    /* height: auto;
+    object-fit: contain; */
+}
+
+header, footer{
+    background-color: var(--culoare-inchisa1);
+    padding: var(--padding-text);
+}
+
+#grid-pagina > header, #grid-pagina > footer {
+    box-shadow: 0 2px 4px var(--culoare-inchisa2);
+    border-radius: 5px;
+}
+
+main{
+    padding-left: var(--spatiere-pagina);
+    padding-right: var(--spatiere-pagina);
+}
+
+#Despre{
+    grid-area: Despre;
+}
+
+#Medici{
+    grid-area: Medici;
+}
+
+#Servicii{
+    grid-area: Servicii;
+}
+
+#Tarife{
+    grid-area: Tarife;
+}
+
+#Contact{
+    grid-area: Contact;
+}
+
+#Program_de_Lucru{
+    grid-area: Program_de_lucru;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#Program_de_lucru h3 {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#icon-dinte_static {
+    color: var(--culoare-inchisa1);
+    font-size: 1.5rem;
+}
+
+#pdf{
+    grid-area: pdf;
+    width: 100%;
+    height: auto;
+}
+
+#video iframe{
+    grid-area: video;
+    width: 70%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+#harta_img {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    width: 100%;
+    height: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+#titlu_harta {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#harta_interactiva{
+    width: 100%;
+    height: auto;
+    max-width: 940px;
+    display: block;
+}
+
+#fatete picture{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#fatete img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+#fatete figcaption {
+    text-align: center;
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+#Telefon img {
+    width: 140px;
+}
+
+#link-top{
+    position:fixed;
+    bottom:0.3em;
+    opacity:0.5;
+    left:0.3em;
+    width:3rem;
+    box-sizing: border-box;
+    height:3rem;
+    line-height:3rem;
+    text-align:center;
+    border:5px solid var(--culoare-deschisa);
+      border-top-color:var(--culoare-inchisa1);
+      border-bottom-color: var(--culoare-inchisa1);
+    border-radius:50%;
+    background: var(--culoare-background2);
+    transition: transform 0.4s ease-in-out;
+  }
+  #link-top:hover{
+    opacity:1;
+    transform: rotate(360deg);
+  }
+  #triunghi{
+    height:0px;
+    width:0;
+    display:inline-block;
+    border-bottom:0.5rem solid var(--culoare-deschisa);
+    border-left:1rem solid transparent;
+    border-right:1rem solid transparent;
+    vertical-align: top;
+    transform: translateY(80%);
+    filter: blur(2px);
+    transition: filter 0.4s ease-in-out;
+  }
+
+  #linie {
+    width: 6px;
+    height: 20px;
+    background: var(--culoare-deschisa);
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-60%);
+    filter: blur(2px);
+    transition: filter 0.4s ease-in-out;
+}
+#link-top:hover #triunghi, 
+#link-top:hover #linie {
+    filter: blur(0); 
+}
+
+.tooltip {
+    visibility: hidden;
+    position: absolute;
+    bottom: 120%; 
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--culoare-background1);
+    color: var(--culoare-inchisa2);
+    padding: 5px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 0.875rem;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 10;
+}
+
+#link-top:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.dr-img img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    box-shadow: 0px 4px 10px var(--culoare-inchisa1);
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+}
+
+/* .continer-iframe{
+    width: 50%;
+    max-width: 600px;
+    min-width: 200px;
+    display: flex;
+}
+
+.continer-iframe >iframe{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+} */
+
+.container-iframe {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;  /* aliniază tab-urile la baza video-ului */
+    position: relative;
+    width: 100%;
+    height: auto;
+    
+}
+
+.container-iframe > iframe {
+    flex-grow: 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+
+.taburi-iframe {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    z-index: 1000;
+}
+
+.taburi-iframe > a {
+    width: 95px;
+    height: 40.5px;
+    border: 1px solid var(--culoare-inchisa1);
+    border-radius: 2.5px 25.5px 0 0;
+    text-align: center;
+    background-color: var(--culoare2);
+    line-height: 12.75px;
+    font-weight: bold;
+    font-size: 0.5rem;
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+    overflow: hidden;
+    margin: 0;
+}
+
+.taburi-iframe > a:hover {
+    background-color: var(--culoare-inchisa1);
+    color: var(--culoare-deschisa);
+    transform: scale(1.05);
+}
+
+.taburi-iframe > a:active {
+    transform: scale(0.95);
+}
+
+
+.table-container {
+    overflow-x: hidden;
+    /* overflow: auto; */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px  var(--culoare-inchisa2);
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    table-layout: auto;
+    border-collapse: collapse;
+    background-color: var(--culoare-background1);
+}
+
+caption{
+    caption-side: bottom;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+thead tr{
+    background-color: var(--culoare-inchisa1);
+    color: var(--culoare-background1);
+}
+
+tbody tr:nth-child(even) td {
+    background-color: var(--culoare-background1);
+}
+
+tbody tr:nth-child(odd) td {
+    background-color: var(--culoare-background2);
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid var(--culoare-inchisa1);
+}
+
+tbody tr:hover {
+    background-color: var(--culoare2) !important;
+    color: var(--culoare-background2);
+    transition: background-color 0.3s ease-in-out;
+}
+
+tbody tr:hover td {
+    background-color: inherit !important;
+    color: inherit;
+}
+
+tfoot {
+    background-color: var(--culoare-inchisa1);
+    color: var(--culoare-background1);
+    font-style: italic;
+    text-align: center;
+}
+   
+#watermark{
+    display: none;
+}
+
+@media screen and (max-width:1200px){
+    html{
+        font-size:14px;
+    }
+
+    body{
+        --spatiere-pagina:50px;
+    }    
+    
+    #grid-pagina{
+        grid-template-rows: 1fr 3fr; /* repeat(2,1fr) */
+        grid-template-areas: "Despre Despre"
+                             "Servicii Medici"
+                             "Servicii Medici"
+                             "harta_img Medici"
+                             "video Medici"
+                             "Tarife Medici"
+                             "pdf Contact"
+                             "Program_de_lucru Contact";
+        gap: 15px 30px;        
+        max-width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto;             
+
+    }
+
+    #Servicii, #Medici {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    #pdf{
+        grid-area: pdf;
+        width: 100%;
+        height: auto;
+    }
+    
+    #grid-pagina img {
+        max-width: 100%;
+        height: auto;
+
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 500px;
+    }
+
+    #Locatie iframe {
+        width: 100%;
+        max-width: 500px;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width:600px) {
+    html{
+        font-size:10px;
+    }
+
+    body{
+        --spatiere-pagina:20px;
+    }    
+
+    #grid-pagina{
+        display: block;
+    }
+
+    #grid-pagina > *{
+        margin-bottom: 10px;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    #pdf{
+        grid-area: pdf;
+        width: 100%;
+        height: auto;
+    }
+    
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 500px;
+    }
+
+    #Locatie iframe {
+        width: 100%;
+        max-width: 400px;
+        height: 250px;
+    }
+    
+    
+}
+  
+  a:visited {
+    color: var(--culoare1);
+  }
+  
+  a[href^="http"]::before {
+    content: "⮳";
+    font-size: 150%;
+    margin-right: 0.3em;
+    vertical-align: middle;
+    transition: color 0.3s ease;
+  }
+  
+  a[href^="http"]:hover::before {
+    color: var(--culoare2);
+  }
+  
+  main a {
+    position: relative;
+    display: inline-block;
+    background-image: radial-gradient(ellipse, var(--culoare2) 0%, var(--culoare2) 40%, transparent 80%, transparent 100%);
+    background-size: 0% 0%;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: background-size 0.4s ease;
+  }
+  
+  main a:hover {
+    background-size: 120% 60%; 
+  }
+  
+  a:active {
+    outline: 2px solid var(--culoare-inchisa1);
+    outline-offset: 2px;
+  }
+  
+
+/* html, body, div, object, iframe,
+h1, h2, h3, p, a, img, var,
+b, u, i, center, ul, li,
+table, tbody, tfoot, thead, tr, th, td, details,  
+figure, figcaption, footer, header, 
+menu, nav, strong, section, summary, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+figcaption, figure, footer, header, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+ */

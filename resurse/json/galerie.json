@@ -1,0 +1,135 @@
+{
+	"cale_galerie":"resurse/imagini/galerie",
+	"imagini": [
+		{
+			"fisier":"albire.jpeg",
+			"descriere":"Albire",
+			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+		},
+		{
+			"fisier":"aparat_dentar_fix_interior.jpeg",
+			"descriere":"Aparat fix",
+			"luni":["ianuarie","februarie","iunie"]
+			
+		},
+		{
+			"fisier":"aparat_dentar.jpeg",
+			"descriere":"Aparat dentar",
+			"luni":["ianuarie","noiembrie","iunie","martie","aprilie"]
+		},
+		{
+			"fisier":"aparate_dentare_mobile.jpeg",
+			"descriere":"Aparat mobil",
+			"luni":["noiembrie","aprilie", "decembrie"]
+		},
+		{
+			"fisier":"Dental Xray.jpeg",
+			"descriere":"Radiografie",
+			"luni":["noiembrie","aprilie", "decembrie"]
+		},
+		{
+			"fisier":"extractie.jpeg",
+			"descriere":"Extracție",
+			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+
+		},
+		{
+			"fisier":"fatete.jpeg",
+			"descriere":"Fatete ceramice",
+			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+
+		},
+		{
+			"fisier":"fatete2.jpeg",
+			"descriere":"Fatete",
+			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+
+		},
+		{
+			"fisier":"gutiere.jpeg",
+			"descriere":"Gutiere",
+			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+
+		},
+		{
+			"fisier":"gutiere2.jpeg",
+			"descriere":"Gutiere",
+			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+
+		},
+		{
+			"fisier":"implant_img.jpeg",
+			"descriere":"Implant",
+			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+
+		},
+		{
+			"fisier":"implant_total.jpeg",
+			"descriere":"Lucrare pe implant",
+			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+
+		},
+		{
+			"fisier":"implant-incisivi_laterali.jpeg",
+			"descriere":"Implant incisivi",
+			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+
+		},
+		{
+			"fisier":"implant.jpeg",
+			"descriere":"Implant",
+			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+
+		},
+		{
+			"fisier":"implanturi_arcade.jpeg",
+			"descriere":"Lucrare pe implant",
+			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+
+		},
+		{
+			"fisier":"instrumente.jpeg",
+			"descriere":"Instrumente"
+		},
+		{
+			"fisier":"Invisalign.jpeg",
+			"descriere":"Invisalign"
+		},
+		{
+			"fisier":"invisalign2.jpeg",
+			"descriere":"Invisalign"
+		},
+		{
+			"fisier":"lucrare_partiala.jpeg",
+			"descriere":"Lucrare mobila"
+		},
+		{
+			"fisier":"plomba.jpeg",
+			"descriere":"Plomba"
+		},
+		{
+			"fisier":"proteza.jpeg",
+			"descriere":"Proteza"
+		},
+		{
+			"fisier":"proteze_mobile.jpeg",
+			"descriere":"Proteza mobila"
+		},
+		{
+			"fisier":"smile.jpeg",
+			"descriere":"Albire dentara"
+		},
+		{
+			"fisier":"tratament_canal.jpeg",
+			"descriere":"Tratament de canal"
+		},
+		{
+			"fisier":"zambet_2.jpeg",
+			"descriere":"Albire"
+		},
+		{
+			"fisier":"zambet.jpeg",
+			"descriere":"Albire"
+		}
+	]
+}

@@ -1,0 +1,13 @@
+#ch-menu:checked ~ ul.meniu + label .hamburger-menu {
+    .bar {
+      animation: animate-bar 0.9s forwards;
+    }
+  
+    // Delay animat pentru fiecare bară
+    @for $i from 1 through 3 {
+      .bar:nth-child(#{$i}) {
+        animation-delay: $i * 0.3s;
+      }
+    }
+  }
+  

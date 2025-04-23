@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="ro">
+    <head>
+        <title>HappyDent</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- va fi explicat când ajungem la CSS -->
+        <meta name="keywords" content="medici, stomatolog, tratamente, sănătate orală"><!--cuvintele cheie ale paginii; majoritatea motoarelor de căutare ignoră keywords -->
+        <meta name="description" content="Clinica noastră te întâmpină cu o echipă de profesioniști și tratamente personalizate."><!-- descrierea paginii, adesea apare sub link când sunt afișate rezultatele căutării -->
+        <meta name="author" content="Ana-Maria Vizireanu">  <!-- autorul/autoarea paginii--> 
+        <link rel="stylesheet" href="resurse/css/galerie-statica.css" />
+        
+        <%- include("../fragmente/head.ejs")  %>
+    </head>
+    <body>
+        <%- include("../fragmente/header.ejs")  %>
+
+        <main>
+            <div id="grid-pagina">
+                
+                <section id="Despre">
+                    <h2>Despre</h2>
+                    <p><b>Ip: </b><%- locals.ip  %></p>
+                    <section>
+                    <h3>Cine suntem?</h3>
+
+                    <p>La HappyDent, zâmbetul tău este prioritatea noastră! Suntem o echipă de profesioniști dedicați, <b>medici stomatologi cu experiență</b> de peste 25 de ani, asistenți bine pregătiți, tehnicieni dentari meticuloși și specialiști în radiologie dentară. 
+                        Misiunea noastră este aceea de a îți oferii servicii de înaltă calitate, într-un mediu sigur, modern și confortabil.<br/>
+                        <br/>
+                    O echipă de <b>specialiști</b> care are <b>grijă de sănătatea ta orală</b>!</p>
+                                    
+                    <h3>Echipa medicala</h3>
+                    
+                    <p>Medicii noștri sunt specializați în domenii diverse de la <b>stomatologie generală</b> până la <b><i>chirurgie dento-alveolară</i></b>. Fiecare pacient are parte de tratamente personalizate, folosind tehnici moderne și materiale de înaltă calitate.</p>
+                    
+                    <h3>Asistenții noștri</h3>
+                    
+                    <p>Un tratament reușit nu înseamnă doar precizie medicală, ci și confortul pacientului. Aici intervin asistenții care pe lângă realizarea pregătirii și sterilizării instrumentarului aceștia asigură suportul necesar pacienților în timpul procedurilor, astfel încât experiența să fie una relaxantă li lipsită de stres.</p>
+                    
+                    <h3>Tehnicienii dentari</h3>
+                    
+                    <p>Tehnicienii joacă de asemenea un rol foarte important, fără aceștia, lucrările protetice nu ar putea fi realizate. Cu o experiență vastă în realizarea de <b>coroane</b>, <b>fațete</b>, <b>proteze</b> și <b>lucrări pe implanturi</b>, tehnicienii noștri sunt la curent cu toate noutățile, astfel încât să vă poată reda frumusețea zâmbetului de altădată.</p>
+                    
+                    <h3>Radiologie digitală</h3>
+                    
+                    <p>Un diagnostic corect este primul pas către un tratament eficient. Clinica noastră vă pune la dispoziție cele mai performante aparate pentru realizarea radiografiilor, procedura este sigură, rapidă și expunere minimă la radiații.</p>
+                    
+                    <h3>De ce să alegi HappyDent?</h3>
+                    
+                    <p>Experiență și profesionalism – echipa noastră este formată din <b>specialiști cu ani de experiență</b> și practică în domeniu, mereu la curent cu noile tehnologii din sfera stomatologiei.<br/>
+                        <br/>
+                    Echipamente de ultimă generație – folosim tehnologii moderne care ne permit să îți oferim tratamente <i>minim invazive</i>, precise și eficiente.<br/>
+                    <br/>
+                    Planuri de tratament personalizate – fiecare pacient este unic, de aceea găsim soluții potrivite nevoilor tale.<br/>
+                    <br/>
+                    Confort și sigurantă – punem accent pe experiențe fără durere, într-un ambient plăcut și relaxant.<br/>
+                    <br/>
+                    
+                    Indiferent că ai nevoie de o simplă consultație, un tratament estetic sau o reconstrucție complexă, te așteptăm la HappyDent pentru a-ți reda sănătatea și frumusețea zâmbetului. Zâmbește cu încredere, noi avem grijă de tine!</p>
+                    </section>
+                    
+                </section>
+                <section id="Medici">
+                    <h2>Medici</h2>
+                    <p>
+                        <figure id="dr1" class="dr-img">
+                            <img src="/resurse/imagini/doctor1.png" alt="medic1">
+                            <!-- <figcaption>Medic 1</figcaption> -->
+                        </figure>
+                        Dr. MATEI GABRIEL – specialist <b>ortodenție</b>, cu peste 10 ani de experiență în corectarea alinierii dentare, utilizând tehnici moderne pentru un zâmbet armonios.<br/>
+                        <figure id="dr2" class="dr-img">
+                            <img src="/resurse/imagini/doctor2.jpg" alt="medic2">
+                            <!-- <figcaption>Medic 2</figcaption> -->
+                        </figure>
+                        Dr. STAN NICOLETA – specialist <b>edondonție microscopica</b>, cu 15 ani experiență, realizează tratamente de canal precise și eficiente pentru salvarea dinților naturali.<br/>
+                        <figure id="dr3" class="dr-img">
+                            <img src="/resurse/imagini/doctor3.png" alt="medic3">
+                            <!-- <figcaption>Medic 3</figcaption> -->
+                        </figure>
+                        Dr. DICIEANU LIVIU – specialist <b><i>chirurgie dento-alveolară</i></b>, cu peste 20 de ani de experiență în intervenții complexe, de la extracții dificile la tratamente chirurgicale avansate.<br/>
+                        <figure id="dr4" class="dr-img">
+                            <img src="/resurse/imagini/doctor4.jpg" alt="medic4">
+                            <!-- <figcaption>Medic 4</figcaption> -->
+                        </figure>
+                        Dr. DOGARU CIPRIAN – specialist endodonție, cu 9 ani experiență, oferă tratamente de canal sigure și durabile, utilizând tehnologie de ultimă generație.<br/>
+                        <figure id="dr5" class="dr-img">
+                            <img src="/resurse/imagini/doctor5.png" alt="medic5">
+                            <!-- <figcaption>Medic 5</figcaption> -->
+                        </figure>
+                        Dr. ISTRATE SILVIA – specialist în estetică dentară cu 12 ani experiență, transformă zâmbetele prin fațete dentare, albire profesională, detartraj si multe altele.<br/>
+                        <figure id="dr6" class="dr-img">
+                            <img src="/resurse/imagini/doctor6.png" alt="medic6">
+                            <!-- <figcaption>Medic 6</figcaption> -->
+                        </figure>
+                        Dr. PUIA DRAGOȘ IONUȚ – specialist în <b>implantologie</b>, cu peste 11 ani experiență, readuce zâmbete prin implanturi dentare sigure și de lungă durată.<br/>
+                        <figure id="dr7" class="dr-img">
+                            <img src="/resurse/imagini/doctor7.jpg" alt="medic7">
+                            <!-- <figcaption>Medic 7</figcaption> -->
+                        </figure>
+                        Dr. ȘTEFAN GEANINA – medic stomatolog generalist, cu 13 ani experiență, asigură o îngrijire completă, de la prevenție și tratamente de rutină, la intervenții complexe.<br/>
+
+
+                    </p>
+                </section>
+                <section id="Servicii">
+                    <h2>Servicii</h2>
+                    <p>
+                        •	Profilaxie și igienizare dentară <br/>
+                        <br/>
+                        Un zâmbet frumos începe cu o igienă orală impecabilă! La clinica noastă, îți oferim tehnici modern de igienizare dentară: periaj profesional, detartraj ultrasonic și airflow pentru o curățare profundă. Astfel vom îndepărta placa bacteriană și tartrul. După terminarea procedurii vei redescoperi senzația de dinți netezi, respirație proaspătă și un zâmbet strălucitor.<br/>
+                        <br/>
+                        •	Estetică dentară<br/>
+                        <br/>
+                        Visezi la un zâmbet perfect? Albirea dentară profesională, fațetele ceramice și reconstrucțiile estetice sunt soluții ideale pentru a obține o dantură de invidiat. Transformă-ți zâmbetul și câștigă încrederea în tine cu ajutorul specialiștilor noștri!<br/>
+                        <br/>
+                        •	Implantologie<br/>
+                        <br/>
+                        Dinții lipsă nu mai trebuie să fie o problemă! Implanturile dentare sunt soluția modernă și durabilă pentru a-ți reda atât funcționalitatea cât și estetica danturii. Cu ajutorul tehnologiei de ultimă generație și experiența medicilor noștri, îți oferim un tratament sigur, fără durere și cu rezultate spectaculoase.<br/>
+                        <br/>
+                        •	Ortodenție<br/>
+                        <br/>
+                        Un zâmbet armonios și o mușcătură corectă înseamnă mai mult decât estetică – însemnă sănătate! Oferim soluții moderne pentru alinierea dinților, de la aparte dentare clasice la bine cunoscutele aparate Invisalign, transparente, confortabile și aproape invizibile, astfel nu mai duci grija bracketurilor.
+                        Alege tratamentul potrivit și bucură-te de un zâmbet perfect!<br/>
+                        <br/>
+                        •	Endodonție<br/>
+                        <br/>
+                        Durerea de dinți nu trebuie să fie o povară! Tratamentul pe canal realizat de specialiștii noști te ajută să îți păstrezi dinții naturali, eliminând infecțiile și disconfortul. În funcție de complexitatea cazului, tratamentul poate fi efectuat la microscop, pentru o precizie maximă. Cu tehnologia avansată și anestezie modernă, procedura este sigură, eficientă și confortabilă.<br/>
+                        <br/>
+                        •	Radiografie (radiologie)<br/>
+                        <br/>
+                        Un tratament corect începe cu un diagnostic exact! Cu ajutorul radiologiei digitale, obținem imagini clare ale danturii tale, cu expunere minimă la radiații. Descoperim problemele ascunse și găsim cea mai bună soluție pentru sănătatea ta dentară!<br/>
+                        <br/>
+                        •	Chirurgie dento-alveolară<br/>
+                        <br/>
+                        Dacă ai un dinte care nu mai poate fi salvat, un molar de minte care îți creează probleme sau alte intervenții chirurgicale orale, îți oferim soluții rapide, eficiente și minim invazive. Cu o echipă de specialiști și tehnologie modernă se reduce disconfortul și îți asigurăm o recuperare rapidă.<br/>
+                        <br/>
+                        •	Stomatologie pediatrică<br/>
+                        <br/>
+                        Știm cât de important este ca cei mici să aibă o experiență plăcută la dentist! De aceea, îi întâmpinăm cu răbdare, grijă și o atmosferă relaxantă, astfel încât să se simtă în siguranță. Ne ocupăm de prevenire problemelor dentare, tratăm cariile și oferim sfaturi utile pentru un zâmbet sănătos de la cele mai mici vârste. Pentru noi, fiecare vizită trebuie să fie o experiență pozitivă, care să le dea încredere copiilor în îngrijirea dinților!<br/>
+
+                    </p>
+                    <h3>Proteze</h3>
+                    <div id="pdf">
+                        <object data="/resurse/pdf/instructiuni_pentru_purtatorul_de_proteze.pdf" type="application/pdf" width="100%" height="600px">
+                            <p>Browser-ul tău nu suportă afișarea PDF. <a href="./resurse/pdf/instructiuni_pentru_purtatorul_de_proteze.pdf" download>Descarcă fișierul</a>.</p>
+                        </object>
+                    </div>
+                                    
+                </section>
+                <figure id="fatete">
+                    <picture>
+                        <source srcset="/resurse/imagini/fatete-mica.png" alt="Fatete mici" media="(max-width:400px)"/> <!--400px x 210px-->
+                        <source srcset="/resurse/imagini/fatete-medie.png" alt="Fatete medii" media="(max-width:800px)"/> <!--800px x 420px-->
+                        <img src="/resurse/imagini/fatete-mare.png" alt="Fatete mari"/> <!--1600px x 840px-->
+                    </picture>
+                    <figcaption>Fațete ceramice</figcaption>
+                </figure>
+                <div id="video" class="container-iframe">
+                    
+                    <iframe name="ifr-video" width="560" height="315" src="https://www.youtube.com/embed/gAODutgIIVQ" 
+                    frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
+                    <div class="taburi-iframe">
+                    <a href="https://www.youtube.com/embed/gAODutgIIVQ" target="ifr-video">Cum ne spălăm corect pe dinți</a>
+                    <a href="https://www.youtube.com/embed/T1Fnb4iVf-c" target="ifr-video" >Cum îi învățăm pe copii să își îngrijească dințișorii</a><br/>
+                    </div>
+                </div>
+            <figure id="harta_img"> 
+                <div id="titlu_harta">  
+                    <h2>Pentru mai multe informații despre fiecare categorie de dinți, dați click pe dintele colorat din legenda</h2>
+                </div> 
+                <img src="/resurse/imagini/Dinti-Permanenti-Adult.jpg" usemap="#harta-dinti", id="harta_interactiva" width="940" height="788" alt="Dantură umană">
+
+            
+                <map name="harta-dinti">
+                    <!-- Incisivi (verzi) -->
+                    <area shape="rect" coords="225,260,250,115" href="https://ro.wikipedia.org/wiki/Incisiv" alt="Incisivi" target="_blank">
+                    
+                    <!-- Canini (roșii) -->
+                    <area shape="rect" coords="215,330,250,300" href="https://ro.wikipedia.org/wiki/Canin" alt="Canini" target="_blank">
+                    
+                    <!-- Premolari (galbeni) -->
+                    <area shape="rect" coords="215,500,250,452" href="https://ro.wikipedia.org/wiki/Premolar" alt="Premolari" target="_blank">
+                    
+                    <!-- Molari (albaștri) -->
+                    <area shape="rect" coords="210,650,250,620" href="https://ro.wikipedia.org/wiki/Molar" alt="Molari" target="_blank">
+                </map>
+            </figure>
+                
+                <section id="Tarife">
+                    <h2>Tarife servicii dentare</h2>
+                    <section>
+                        <h3>Servicii Stomatologice și Tarife</h3>
+                        
+                        <details>
+                            <summary>Consultații și Diagnostic</summary>
+                            <p>
+                                Consultație stomatologică generală – 100 RON<br/>
+                                Plan de tratament personalizat – 110 RON<br/>
+                                Radiografie dentară digitală – de la 40 RON<br/>
+                            </p>
+                        </details>
+                    
+                        <details>
+                            <summary>Profilaxie și Igienizare</summary>
+                            <p>
+                                Consultație: 150 RON <br/>
+                                Detartraj cu ultrasunete + periaj profesional: 350 RON <br/>
+                                Air Flow total (ambele arcade): 250 RON<br/>
+                                Periaj profesional Happy Brush: 150 RON<br/>
+
+                            </p>
+                        </details>
+                    
+                        <details>
+                            <summary>Estetică Dentară</summary>
+                            <p>
+                                Albire dentară: 1500 RON<br/>
+                                Fațete dentare ceramice (E-max): 300 EUR<br/>
+                                Fațete dentare Full-Zirconiu: 250 EUR <br/>
+                                Fațete dentare Non-Prep: 500 EUR <br/>
+
+                            </p>
+                        </details>
+                    
+                        <details>
+                            <summary>Endodonție (Tratamente de canal)</summary>
+                            <p>
+                                Tratament endodontic dinte monoradicular: 200 RON <br/>
+                                Tratament endodontic premolar: 250 RON <br/>
+                                Tratament endodontic dinte pluriradicular: 350 RON <br/>
+                                Utilizarea microscopului: 200 RON<br/>
+
+                            </p>
+                        </details>
+                    
+                        <details>
+                            <summary>Protetică Dentară</summary>
+                            <p>
+                                Coroană metalo-ceramică – 200 RON<br/>
+                                Coroană zirconiu – 150 RON<br/>
+                                Proteză totală/acrilică – 2000 RON<br/>
+                            </p>
+                        </details>
+                    
+                        <details>
+                            <summary>Chirurgie dento-alveolară</summary>
+                            <p>
+                                Extracție dinte monoradicular: 250 RON <br/>
+                                Extracție dinte pluriradicular: 300 RON<br/>
+                                Extracție molar de minte: 500 RON <br/>
+                                Extracție dinte temporar: 120 RON <br/>
+                                Rezecție apicală: 400 RON <br/>
+                                Drenaj abces: 100 RON <br/>
+
+                            </p>
+                        </details>
+                        <details>
+                            <summary>Implantologie</summary>
+                            <p>
+                                Implant dentar Megagen, INNO (Coreea): 530 EUR <br/>
+                                Implant dentar ICX (Germania & Elveția): 630 EUR <br/>
+                                Implant dentar Nobel (SUA): 1000 EUR <br/>
+                                Bont protetic drept: 50 EUR <br/>
+                                Bont protetic angulat: 100 EUR <br/>
+                                Bont individualizat: 150 EUR <br/>
+                                Bont protetic din zirconiu: 200 EUR <br/>
+                            </p>
+                        </details>
+                        <details>
+                            <summary>Ortodențe</summary>
+                            <p>
+                                Aparat dentar fix cu bracketi metalici / arcadă: 4800 RON <br/>
+                                Aparat dentar fix cu bracketi fizionomici / arcadă: 4900 RON <br/>
+                                Aparat dentar fix cu bracketi safir / arcadă: 6300 RON <br/>
+                                Aparat dentar fix sistem DAMON / arcadă: 6300 RON <br/>
+                                Aparat dentar fix lingual individualizat WIN / arcadă: 9000 RON <br/>
+                                Aparat dentar fix lingual INCOGNITO / arcadă: 12000 RON <br/>
+                                Aparat dentar mobil / arcadă: 1850 RON <br/>
+                                Tratament cu alignere aparat INVISALIGN LITE: 4200 EUR <br/>
+                                Tratament cu alignere aparat dentar invizibil INVISALIGN Teen / ambele arcade: 5100 EUR <br/>
+
+                            </p>
+                        </details>
+                        <details>
+                            <summary>Stomatologie pediatrică</summary>
+                            <p>
+                                Consultație stomatologie pediatrică: 200 RON <br/>
+                                Consultație pedodontică de specialitate: 250 RON <br/>
+                                Anestezie locală computerizată DentaPen: 90 RON/sedinta <br/>
+                                Inhalosedare cu protoxid de azot pentru copii / ședință: 450 RON <br/>
+                                Sedare ușoară (conștientă) medicamentoasă asistată de medic anestezist ATI pentru copii / ședință (poate include inhalosedare, la indicația medicului pedodont)<br/>
+                                Sigilare dentară (dinte sănătos, prevenție carii): 150 RON/dinte <br/>
+                                Tratament carie dentară (obturatie): 250 RON/dinte <br/>
+
+                            </p>
+                        </details>
+                        <details>
+                            <summary>Radiologie</summary>
+                            <p>
+                                Radiografie locală: 35 RON <br/>
+                                Radiografie panoramică digitală (OPG): 100 RON <br/>
+                                Tomografie completă maxilară/mandibulară: 750 RON <br/>
+                                Tomografie parțială maxilară/mandibulară: 450 RON <br/>
+
+                            </p>
+                        </details>
+                        <p><strong>Prețurile pot varia în funcție de complexitatea cazului și materialele utilizate. Pentru un plan de tratament personalizat, te invităm la o consultație în cadrul clinicii.</strong></p>
+                    </section>
+                    
+                    
+                </section>
+                <section id="Contact">
+                    <h2>Contact</h2>
+                    
+                    <section id="Telefon">
+                        <h3>Telefon</h3>
+                        <a href="tel:+40123456789">Sună la +40 123 456 789</a><br/>
+                        <a aria-label="Chat on WhatsApp" href="https://wa.me/+40123456789"> <img alt="Chat on WhatsApp" src="./resurse/imagini/wapp.png" />
+                        </a>
+
+                    </section>
+                    <section id="Email">
+                        <h3>Email</h3>
+                        <a href="https://mail.google.com/mail/?view=cm&to=happydent@gmail.com">Trimite un email</a>
+
+
+                    </section>
+                    <section id="Locatie">
+                        <h3>Locatie</h3>
+                        <a href="https://www.google.com/maps?q=Facultatea+de+Matematica+si+Informatica,Bucuresti" target="_blank">
+                            Adresa noastră: Clinica HappyDent
+                        </a>
+                    
+                        <p><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.884301139313!2d26.097011776046255!3d44.43553547107584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff472f47f047%3A0x493984726f0235f9!2sFacultatea%20de%20Matematic%C4%83%20%C8%99i%20Informatic%C4%83!5e0!3m2!1sro!2sro!4v1741177517341!5m2!1sro!2sro" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+                    </section>
+
+                    <section id="Program_de_lucru">
+                        <h3>Program de lucru<i class="fa-solid fa-tooth" id="icon-dinte_static"></i></h3>                        
+                        <div class = "table-container">    
+                            <table>
+                                <!-- <caption>Program de Lucru</caption> -->
+                                <thead>
+                                    <tr>
+                                        <th>Zi</th>
+                                        <th>Ora început</th>
+                                        <th>Ora final</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>LUNI</td>
+                                        <td>9:00</td>
+                                        <td>18:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MARȚI</td>
+                                        <td colspan="2">11:00 - 20:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MIERCURI</td>
+                                        <td>9:00</td>
+                                        <td>18:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>JOI</td>
+                                        <td colspan="2">11:00 - 20:00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>VINERI</td>
+                                        <td>9:00</td>
+                                        <td>18:00</td>
+                                    </tr>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="3">Programul poate suferi modificari.</td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+                        </div>    
+                        </section>
+                    </section>
+                    
+            
+            </div>
+
+            <section id="galerie-statica">
+                <h2>Galerie</h2>
+                <div id="grid-galerie">
+                    <% 
+                        vect_luni=["ianuarie", "februarie", "martie", "aprilie", "mai", "iunie", "iulie"]
+                        d=new Date()
+                        luna_curenta=vect_luni[d.getMonth()]
+                        for (let imag of locals.imagini) {  %>
+                            <% if (imag.luni && imag.luni.includes(luna_curenta)) { %>
+                                <figure>
+                                    <picture>
+                                        <source srcset="<%- imag.fisier_mediu  %>" media="screen and (max-width:1000px)" />
+                                        <img src="<%- imag.fisier  %>" alt="<%- imag.descriere %>">
+                                    </picture>
+                                    <figcaption><%- imag.descriere %></figcaption>
+                                </figure>
+
+                            <% } %>
+                    <% } %>
+                </div>
+            </section>
+            
+                <div id="watermark">
+                    <!-- <h1>Watermark</h1> -->
+                    <p>Vizireanu<br>Ana-Maria</p>
+                </div>
+                
+        </main>
+        <%- include("../fragmente/footer.ejs")  %>
+
+        <p id="absolut">Acesta este un proiect scolar!</p>
+    </body>
+</html>
