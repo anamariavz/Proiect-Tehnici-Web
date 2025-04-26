@@ -23,8 +23,8 @@ obGlobal={
     obErori:null,
     obImagini:null,
     folderScss: path.join(__dirname,"resurse/scss"),
-    folderCss: path.join(__dirname,"resurse/css")
-
+    folderCss: path.join(__dirname,"resurse/css"),
+    folderBackup: path.join(__dirname, "backup")
 }
 
 //const Client=pg.Client;
@@ -127,50 +127,59 @@ function afisareEroare(res, identificator, titlu, text, imagine){
 
 }
 
-// function compileazaScss(caleScss, caleCss){
-//     console.log("cale:",caleCss);
-//     if(!caleCss){
+function compileazaScss(caleScss, caleCss){
+    console.log("cale:", caleCss);
+    if (!caleCss) {
+        let numeFisExt = path.basename(caleScss);
+        let numeFis = numeFisExt.split(".")[0];
+        caleCss = numeFis + ".css";
+    }
 
-//         let numeFisExt=path.basename(caleScss);
-//         let numeFis=numeFisExt.split(".")[0]   /// "a.scss"  -> ["a","scss"]
-//         caleCss=numeFis+".css";
-//     }
-    
-//     if (!path.isAbsolute(caleScss))
-//         caleScss=path.join(obGlobal.folderScss,caleScss )
-//     if (!path.isAbsolute(caleCss))
-//         caleCss=path.join(obGlobal.folderCss,caleCss )
-    
+    if (!path.isAbsolute(caleScss))
+        caleScss = path.join(obGlobal.folderScss, caleScss);
+    if (!path.isAbsolute(caleCss))
+        caleCss = path.join(obGlobal.folderCss, caleCss);
 
-//     let caleBackup=path.join(obGlobal.folderBackup, "resurse/css");
-//     if (!fs.existsSync(caleBackup)) {
-//         fs.mkdirSync(caleBackup,{recursive:true})
-//     }
-    
-//     // la acest punct avem cai absolute in caleScss si  caleCss
+    let caleBackup = path.join(obGlobal.folderBackup, "resurse/css");
+    if (!fs.existsSync(caleBackup)) {
+        fs.mkdirSync(caleBackup, { recursive: true });
+    }
 
-//     let numeFisCss=path.basename(caleCss);
-//     if (fs.existsSync(caleCss)){
-//         fs.copyFileSync(caleCss, path.join(obGlobal.folderBackup, "resurse/css",numeFisCss ))// +(new Date()).getTime()
-//     }
-//     rez=sass.compile(caleScss, {"sourceMap":true});
-//     fs.writeFileSync(caleCss,rez.css)
-//     //console.log("Compilare SCSS",rez);
-// }
-// //compileazaScss("a.scss");
-// vFisiere=fs.readdirSync(obGlobal.folderScss);
-// for( let numeFis of vFisiere ){
-//     if (path.extname(numeFis)==".scss"){
-//         compileazaScss(numeFis);
-//     }
-// }
+    // Backup doar dacă CSS-ul există
+    if (fs.existsSync(caleCss)) {
+        let timestamp = new Date().toISOString().replace(/[:.-]/g, "_");
+        let numeBackup = `${path.basename(caleCss, '.css')}_${timestamp}.css`;
+        try {
+            fs.copyFileSync(caleCss, path.join(caleBackup, numeBackup));
+            console.log(`Backup creat: ${numeBackup}`);
+        } catch (err) {
+            console.error("Eroare la copierea în backup:", err);
+        }
+    }
 
+    try {
+        let rez = sass.compile(caleScss, { "sourceMap": true });
+        fs.writeFileSync(caleCss, rez.css);
+        console.log(`Compilare SCSS reușită pentru: ${caleCss}`);
+    } catch (err) {
+        console.error("Eroare la compilare SCSS:", err);
+    }
+}
+
+
+//compileazaScss("a.scss");
+vFisiere=fs.readdirSync(obGlobal.folderScss);
+for( let numeFis of vFisiere ){
+    if (path.extname(numeFis)==".scss"){
+        compileazaScss(numeFis);
+    }    
+}
 
 fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
     console.log(eveniment, numeFis);
     if (eveniment=="change" || eveniment=="rename"){
         let caleCompleta=path.join(obGlobal.folderScss, numeFis);
-        if (fs.existsSync(caleCompleta)){
+        if (numeFis && path.extname(numeFis) === ".scss" && fs.existsSync(caleCompleta)){
             compileazaScss(caleCompleta);
         }
     }
@@ -187,10 +196,10 @@ app.use((req, res, next) => {
 
 app.use("/resurse", express.static(path.join(__dirname,"resurse")))
 
-// app.use("/node_modules", express.static(path.join(__dirname,"node_modules")))
+app.use("/node_modules", express.static(path.join(__dirname,"node_modules")))
 
 app.get("/favicon.ico", function(req, res){
-    res.sendfile(path.join(__dirname, "/resurse/imagini/favicon/favicon.ico"))
+    res.sendFile(path.join(__dirname, "/resurse/imagini/favicon/favicon.ico"))
 })
 
 app.get(["/","/index","/home"], function(req, res){

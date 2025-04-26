@@ -1,0 +1,14 @@
+@use "../../node_modules/bootstrap/scss/bootstrap" with (
+  $primary: #F9A68B,        
+  $secondary: #691B1E,     
+  $success: #B82D28,
+  $info: #8F9597,
+  $warning: #F05660,
+  $danger: #691B1E,
+  $light: #FCE3D4,
+  $dark: #333433,
+
+  $body-bg: #D9D9D9,
+  $body-color: #333433,
+  $font-family-base: "Satisfy, cursive"
+);

@@ -4,87 +4,92 @@
 		{
 			"fisier":"albire.jpeg",
 			"descriere":"Albire",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+			"intervale_zile":[["luni","sambata"], ["duminica","duminica"]]
 		},
 		{
 			"fisier":"aparat_dentar_fix_interior.jpeg",
 			"descriere":"Aparat fix",
-			"luni":["ianuarie","februarie","iunie"]
+			"intervale_zile":[["marti","joi"]]
 			
 		},
 		{
 			"fisier":"aparat_dentar.jpeg",
 			"descriere":"Aparat dentar",
-			"luni":["ianuarie","noiembrie","iunie","martie","aprilie"]
+			"intervale_zile":[["miercuri","vineri"]]
 		},
 		{
 			"fisier":"aparate_dentare_mobile.jpeg",
 			"descriere":"Aparat mobil",
-			"luni":["noiembrie","aprilie", "decembrie"]
+			"intervale_zile":[["luni","joi"]]
 		},
 		{
 			"fisier":"Dental Xray.jpeg",
 			"descriere":"Radiografie",
-			"luni":["noiembrie","aprilie", "decembrie"]
+			"intervale_zile":[["marti","miercuri"]]
 		},
 		{
 			"fisier":"extractie.jpeg",
 			"descriere":"Extracție",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+			"intervale_zile":[["luni","sambata"]]
 
 		},
 		{
 			"fisier":"fatete.jpeg",
 			"descriere":"Fatete ceramice",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+			"intervale_zile":[["luni","sambata"]]
 
 		},
 		{
 			"fisier":"fatete2.jpeg",
 			"descriere":"Fatete",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+			"intervale_zile":[["luni","sambata"]]
 
 		},
 		{
 			"fisier":"gutiere.jpeg",
 			"descriere":"Gutiere",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+			"intervale_zile":[["luni","sambata"]]
 
 		},
 		{
 			"fisier":"gutiere2.jpeg",
 			"descriere":"Gutiere",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+			"intervale_zile":[["luni","sambata"]]
 
 		},
 		{
 			"fisier":"implant_img.jpeg",
 			"descriere":"Implant",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+			"intervale_zile":[["luni","sambata"]]
 
 		},
 		{
 			"fisier":"implant_total.jpeg",
 			"descriere":"Lucrare pe implant",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+			"intervale_zile":[["luni","sambata"]]
 
 		},
 		{
 			"fisier":"implant-incisivi_laterali.jpeg",
 			"descriere":"Implant incisivi",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+			"intervale_zile":[["luni","sambata"]]
 
 		},
 		{
-			"fisier":"implant.jpeg",
+			"fisier":"implant_dentar.jpg",
 			"descriere":"Implant",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+			"intervale_zile":[["luni","sambata"]],
+			"atributie": {
+				"autor": "Alexmit art",
+				"sursa": "https://openverse.org/image/ae4fa95b-081d-46df-8f67-f31de59393a7?q=implant&p=26",
+				"licenta": "CC BY-SA 4.0 "
+			}
 
 		},
 		{
 			"fisier":"implanturi_arcade.jpeg",
 			"descriere":"Lucrare pe implant",
-			"luni":["martie","februarie","noiembrie","aprilie", "decembrie"]
+			"intervale_zile":[["luni","sambata"]]
 
 		},
 		{
@@ -130,6 +135,10 @@
 		{
 			"fisier":"zambet.jpeg",
 			"descriere":"Albire"
+		},
+		{
+			"fisier":"implant.jpeg",
+			"descriere":"Implant"
 		}
 	]
 }
