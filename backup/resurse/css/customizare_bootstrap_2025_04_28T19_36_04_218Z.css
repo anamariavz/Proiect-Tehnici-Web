@@ -76,7 +76,7 @@
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: "Satisfy, cursive";
   --bs-body-font-size: 1rem;
-  --bs-body-font-weight: 400;
+  --bs-body-font-weight: 600;
   --bs-body-line-height: 1.5;
   --bs-body-color: black;
   --bs-body-color-rgb: 0, 0, 0;
@@ -217,8 +217,8 @@ hr {
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-  font-weight: 600;
-  line-height: 2;
+  font-weight: 500;
+  line-height: 1.2;
   color: var(--bs-heading-color);
 }
 
@@ -596,7 +596,7 @@ progress {
 .display-1 {
   font-size: calc(1.625rem + 4.5vw);
   font-weight: 300;
-  line-height: 2;
+  line-height: 1.2;
 }
 @media (min-width: 1200px) {
   .display-1 {
@@ -607,7 +607,7 @@ progress {
 .display-2 {
   font-size: calc(1.575rem + 3.9vw);
   font-weight: 300;
-  line-height: 2;
+  line-height: 1.2;
 }
 @media (min-width: 1200px) {
   .display-2 {
@@ -618,7 +618,7 @@ progress {
 .display-3 {
   font-size: calc(1.525rem + 3.3vw);
   font-weight: 300;
-  line-height: 2;
+  line-height: 1.2;
 }
 @media (min-width: 1200px) {
   .display-3 {
@@ -629,7 +629,7 @@ progress {
 .display-4 {
   font-size: calc(1.475rem + 2.7vw);
   font-weight: 300;
-  line-height: 2;
+  line-height: 1.2;
 }
 @media (min-width: 1200px) {
   .display-4 {
@@ -640,7 +640,7 @@ progress {
 .display-5 {
   font-size: calc(1.425rem + 2.1vw);
   font-weight: 300;
-  line-height: 2;
+  line-height: 1.2;
 }
 @media (min-width: 1200px) {
   .display-5 {
@@ -651,7 +651,7 @@ progress {
 .display-6 {
   font-size: calc(1.375rem + 1.5vw);
   font-weight: 300;
-  line-height: 2;
+  line-height: 1.2;
 }
 @media (min-width: 1200px) {
   .display-6 {
@@ -2110,7 +2110,7 @@ progress {
   width: 100%;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.5;
   color: var(--bs-body-color);
   appearance: none;
@@ -2260,7 +2260,7 @@ textarea.form-control-lg {
   width: 100%;
   padding: 0.375rem 2.25rem 0.375rem 0.75rem;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.5;
   color: var(--bs-body-color);
   appearance: none;
@@ -2649,7 +2649,7 @@ textarea.form-control-lg {
   align-items: center;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.5;
   color: var(--bs-body-color);
   text-align: center;
@@ -11846,5 +11846,4 @@ textarea.form-control-lg {
 }
 h1 {
   color: #F9A68B;
-  font-weight: 500;
 }

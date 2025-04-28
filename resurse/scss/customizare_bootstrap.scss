@@ -9,6 +9,17 @@
   $dark: #333433,
 
   $body-bg: #D9D9D9,
-  $body-color: #333433,
-  $font-family-base: "Satisfy, cursive"
+  $body-color: black, // in bootstrap h1 "mosteneste" body-color sau putem modifica headings-color
+  //in cazul meu am ales sa las body-color inchis si h2,h3,... cu o nuanta de bordo, iar pentru h1 am 
+  //selectat o culoare mai deschisa mai jos
+  $headings-color: #691B1E,
+  $font-family-base: "Satisfy, cursive",
+  $headings-font-weight: 600,
+  $headings-line-height: 2
 );
+
+
+h1 {
+  color: #F9A68B;
+  font-weight: 500;
+}

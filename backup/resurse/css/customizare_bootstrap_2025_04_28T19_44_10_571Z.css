@@ -101,7 +101,7 @@
   --bs-code-color: #d63384;
   --bs-highlight-color: black;
   --bs-highlight-bg: rgb(255, 242.6, 205.4);
-  --bs-border-width: 1px;
+  --bs-border-width: 0.5px;
   --bs-border-style: solid;
   --bs-border-color: #dee2e6;
   --bs-border-color-translucent: rgba(0, 0, 0, 0.175);

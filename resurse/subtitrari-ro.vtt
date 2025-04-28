@@ -1,34 +1,51 @@
 WEBVTT
 
-00:00:00.00 --> 00:00:06.59  
-Atunci când se repară o carie mică, o plombă din <u>compozit</u> poate reda forma și funcția dintelui,
+STYLE
+::cue(.Sub) {
+  background-color: var(--culoare-background1);
+  color: var(--culoare-inchisa1); 
+ 
+}
+::cue(.dreaptaSus) {
+  position: top right;
+  text-align: right;
+  background-color: var(--culoare-background1);
+  color: var(--culoare-inchisa1); 
+}
 
-00:00:07.00 --> 00:00:13.59  
-imitând totodată nuanța naturală a dintelui. În prima etapă, dintele este pregătit prin
 
-00:00:14.00 --> 00:00:17.59  
-îndepărtarea porțiunii cariate, rămânând o zonă mică ce va fi umplută cu compozit.
+00:00.000 --> 00:01.000 position:90% align:right size:30% line:-50
+<c.dreaptaSus><b>Clinica Stomatologica</b> - <b>HappyDent</b></c>
 
-00:00:18.00 --> 00:00:24.59  
-Apoi se aplică un agent special de lipire pe zona pregătită. Acest proces ajută
+00:01.000 --> 00:06.590
+<c.Sub>Atunci când se repară o carie mică, o plombă din <u>compozit</u> poate reda forma și funcția dintelui,</c>
 
-00:00:25.00 --> 00:00:30.59  
-la asigurarea atașării plombei cu structura naturală a dintelui. O lumină specială de întărire
+00:07.000 --> 00:13.590
+<c.Sub>imitând totodată nuanța naturală a dintelui. În prima etapă, dintele este pregătit prin</c> 
 
-00:00:31.00 --> 00:00:37.59  
-este apoi folosită pentru a fixa agentul de lipire. Dentistul aplică apoi compozitul
+00:14.000 --> 00:17.590
+<c.Sub>îndepărtarea porțiunii cariate, rămânând o zonă mică ce va fi umplută cu compozit.</c>
 
-00:00:38.00 --> 00:00:41.59  
-pentru a umple zona pregătită și îl modelează pentru a se potrivi conturului suprafeței dentare.
+00:18.000 --> 00:24.590
+<c.Sub>Apoi se aplică un agent special de lipire pe zona pregătită. Acest proces ajută</c>
 
-00:00:42.00 --> 00:00:47.59  
-Din nou, cu ajutorul luminii speciale de întărire, compozitul modelat este întărit pentru a rezista
+00:25.000 --> 00:30.590
+<c.Sub>la asigurarea atașării plombei cu structura naturală a dintelui. O lumină specială de întărire</c>
 
-00:00:48.00 --> 00:00:53.59  
-forței dinților opuși. Ca ultim pas, dentistul va lustrui plomba din compozit
+00:31.000 --> 00:37.590
+<c.Sub>este apoi folosită pentru a fixa agentul de lipire. Dentistul aplică apoi compozitul</c>
 
-00:00:54.00 --> 00:00:58.59  
-pentru a o netezi și a-i oferi un luciu similar cu restul dintelui. Odată finalizat,
+00:38.000 --> 00:41.590
+<c.Sub>pentru a umple zona pregătită și îl modelează pentru a se potrivi conturului suprafeței dentare.</c>
 
-00:00:59.00 --> 00:01:05.00  
-dintele este lipsit de carii și are rezistența și aspectul său natural.
+00:42.000 --> 00:47.590
+<c.Sub>Din nou, cu ajutorul luminii speciale de întărire, compozitul modelat este întărit pentru a rezista</c>
+
+00:48.000 --> 00:53.590
+<c.Sub>forței dinților opuși. Ca ultim pas, dentistul va lustrui plomba din compozit</c>
+
+00:54.000 --> 00:58.590
+<c.Sub>pentru a o netezi și a-i oferi un luciu similar cu restul dintelui. Odată finalizat,</c>
+
+00:59.000 --> 01:05.000
+<c.Sub>dintele este lipsit de carii și are rezistența și aspectul său natural.</c>
