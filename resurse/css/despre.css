@@ -1,15 +1,30 @@
 #video-vtt {
-    width: 100%;
-    max-width: 800px;
-    min-width: 300px;
-    display: block;
-    margin: 0 auto;
-  }
+  width: 80%;
+  min-width: 300px;
+  max-width: 800px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 
-  video::cue {
-    background: rgba(255, 255, 255, 0.7); /* fundal deschis */
-    color: #000;                         /* text închis */
-    font-size: 1rem;
-    text-shadow: none;                   /* fără umbre ciudate */
-  }
+video::cue {
+  background-color: rgba(255, 255, 200, 0.8); /* culoare c1 deschisa */
+  color: #333333; /* culoare c2 inchisa */
+}
+
+
+.fancy-hr {
+  border: none;
+  height: 80px; /* sau cât vrei tu */
+  background-image: 
+    radial-gradient(circle at 10% 40%, #FF6F61 0%, transparent 30%),
+    radial-gradient(circle at 50% 30%, #6B5B95 0%, transparent 25%),
+    radial-gradient(circle at 90% 60%, #88B04B 0%, transparent 35%);
+  background-repeat: no-repeat;
+  background-size: 20px 20px, 25px 25px, 15px 15px;
+  background-position: 10% 40%, 50% 30%, 90% 60%;
   
+  /* estompare margini */
+  -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
