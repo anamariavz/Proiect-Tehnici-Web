@@ -3,7 +3,28 @@ const path= require("path");
 const fs = require("fs");
 const sharp = require("sharp");
 const sass = require("sass");
+const pg = require("pg");
 
+const Client=pg.Client;
+
+client=new Client({
+    database:"clinica_happy_dent",
+    user:"anamaria",
+    password:"HappyDent2025",
+    host:"localhost",
+    port:5432
+})
+
+
+client.connect()
+// client.query("select * from servicii", function(err, rezultat ){
+//     console.log(err)    
+//     console.log(rezultat)
+// })
+// client.query("select * from unnest(enum_range(null::complexitate))", function(err, rezultat ){
+//     console.log(err)    
+//     console.log(rezultat)
+// })
 
 
 app= express();
@@ -26,27 +47,6 @@ obGlobal={
     folderCss: path.join(__dirname,"resurse/css"),
     folderBackup: path.join(__dirname, "backup")
 }
-
-//const Client=pg.Client;
-
-// client=new Client({
-//     database:"clinica_happy_dent",
-//     user:"AnaMaria",
-//     password:"HappyDent2025",
-//     host:"localhost",
-//     port:5432
-// })
-
-
-// client.connect()
-// client.query("select * from prajituri", function(err, rezultat ){
-//     console.log(err)    
-//     console.log(rezultat)
-// })
-// client.query("select * from unnest(enum_range(null::categ_prajitura))", function(err, rezultat ){
-//     console.log(err)    
-//     console.log(rezultat)
-// })
 
 vect_foldere = ["temp", "backup", "temp1"]
 for (let folder of vect_foldere){
@@ -242,7 +242,28 @@ app.get("/abc", function(req, res, next){
     console.log("------------")
 })
 
+app.get("/servicii", function(req, res){
+    console.log(req.query)
+    var conditieQuery=""; // TO DO where din parametri
 
+
+    queryOptiuni="select * from unnest(enum_range(null::complexitate))"
+    client.query(queryOptiuni, function(err, rezOptiuni){
+        console.log(rezOptiuni)
+
+
+        queryProduse="select * from servicii"
+        client.query(queryProduse, function(err, rez){
+            if (err){
+                console.log(err);
+                afisareEroare(res, 2);
+            }
+            else{
+                res.render("pagini/servicii", {produse: rez.rows, optiuni:rezOptiuni.rows})
+            }
+        })
+    });
+})
 
 app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){
     afisareEroare(res,403);
