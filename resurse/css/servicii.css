@@ -6,18 +6,18 @@ main{
     padding-right:var(--padd-main);
 }
 
-.grid-produse{
+.grid-servicii{
     display:grid;
     grid-template-columns: 1fr 1fr;
     grid-gap:1rem;
 }
-.grid-produse .produs{
+.grid-servicii .serviciu{
     border-radius: 2rem;
     box-shadow: 0px 0px 0.8rem 0.3rem grey;
     overflow: hidden;
 }
 
-.grid-produse .produs h3{
+.grid-servicii .serviciu h3{
     background-color: var(--culoare-roz-inchis);
     text-align: center;
     margin-top: 0;
@@ -25,41 +25,41 @@ main{
     padding-bottom: 0.5rem;
 }
 
-.grid-produse .produs h3 a{
+.grid-servicii .serviciu h3 a{
     color:black;
 }
-.grid-produse .produs h3 a:hover{
+.grid-servicii .serviciu h3 a:hover{
     color:white;
 }
-.grid-produse .produs figure{
+.grid-servicii .serviciu figure{
     text-align: center;
 }
-.grid-produse .produs figure img{
+.grid-servicii .serviciu figure img{
     border:1px solid grey
 }
-.grid-produse .produs .info-prod{
+.grid-servicii .serviciu .info-serv{
     display:flex;
     background-color: var(--cl-marcare);
 }
-.grid-produse .produs .info-prod p{
+.grid-servicii .serviciu .info-serv p{
     width:30%;
     text-align:center;
     font-weight:bold;
 }
 
-.grid-produse .produs p.categorie{
+.grid-servicii .serviciu p.categorie{
 
     text-align:center;
     font-weight:bold;
 }
 
-.info-produse{
+.info-servicii{
     background-color: var(--cl-marcare);
     padding:0.2rem;
     box-shadow: 0px 0px 0.5rem 0.15rem grey;
 }
 
-.produs{
+.serviciu{
     position: relative;
 }
 .selecteaza-cos{

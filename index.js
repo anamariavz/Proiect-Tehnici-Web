@@ -34,7 +34,6 @@ console.log("Folderul proiectului: ", __dirname)
 console.log("Calea fisierului index.js: ", __filename)
 console.log("Folderul curent de lucru: ", process.cwd())
 
-//
 
 app.set("view engine", "ejs");
 
@@ -208,13 +207,6 @@ app.get(["/","/index","/home"], function(req, res){
 
 app.get("/despre", function(req, res){
     res.render("pagini/despre");
-})
-
-app.get("/servicii", function(req, res){
-    res.render("pagini/servicii", {
-        servicii: [], 
-        optiuni: []
-    });
 })
 
 app.get("/index/a", function(req, res){

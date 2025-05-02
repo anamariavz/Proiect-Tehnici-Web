@@ -1,7 +1,7 @@
 h2{
     padding:0.4rem;
 }
-#art-produs{
+#art-serviciu{
     margin:0 auto;
     width:70%;
     max-width:700px;
@@ -10,31 +10,31 @@ h2{
     padding:0.4rem;
 }
 
-#art-produs p{
+#art-serviciu p{
     margin:0;
     padding:0.4rem;
     font-weight:bold;
     font-size:1.1rem;
 }
 
-#art-produs p span{
+#art-serviciu p span{
     font-weight: normal;
 }
-#art-produs p:nth-of-type(even){
+#art-serviciu p:nth-of-type(even){
     background-color: var(--culoare-roz-inchis);
 }
-#art-produs p:nth-of-type(odd){
+#art-serviciu p:nth-of-type(odd){
     background-color: var(--cl-marcare);
 }
-.imag-produs{
+.imag-serviciu{
     text-align: center;
 }
-.imag-produs img{
+.imag-serviciu img{
     width:50%;
     height:auto;
 }
 @media screen and (max-width: 700px){
-    #art-produs{
+    #art-serviciu{
         margin:0 auto;
         width:95%;
     }
