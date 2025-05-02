@@ -17,14 +17,14 @@ client=new Client({
 
 
 client.connect()
-// client.query("select * from servicii", function(err, rezultat ){
-//     console.log(err)    
-//     console.log(rezultat)
-// })
-// client.query("select * from unnest(enum_range(null::complexitate))", function(err, rezultat ){
-//     console.log(err)    
-//     console.log(rezultat)
-// })
+client.query("select * from servicii", function(err, rezultat ){
+    console.log(err)    
+    console.log(rezultat)
+})
+client.query("select * from unnest(enum_range(null::complexitate))", function(err, rezultat ){
+    console.log(err)    
+    console.log(rezultat)
+})
 
 
 app= express();
@@ -210,6 +210,12 @@ app.get("/despre", function(req, res){
     res.render("pagini/despre");
 })
 
+app.get("/servicii", function(req, res){
+    res.render("pagini/servicii", {
+        servicii: [], 
+        optiuni: []
+    });
+})
 
 app.get("/index/a", function(req, res){
     res.render("pagini/index");
@@ -259,7 +265,7 @@ app.get("/servicii", function(req, res){
                 afisareEroare(res, 2);
             }
             else{
-                res.render("pagini/servicii", {produse: rez.rows, optiuni:rezOptiuni.rows})
+                res.render("pagini/servicii", {servicii: rez.rows, optiuni:rezOptiuni.rows})
             }
         })
     });

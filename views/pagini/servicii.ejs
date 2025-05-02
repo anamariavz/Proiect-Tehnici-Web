@@ -11,15 +11,10 @@
 
     </head>
     <body>
-    <header class="c1" id="titlu" >
-        <h1 style="color:red;">Cofetaria <span>Dulcelind</span></h1>
-        <%- include("../fragmente/nav") %>
-    </header>
-
+        <%- include("../fragmente/header") %> 
     <main>
         <label> Nume: <input type="text" id="inp-nume"></label>
-        <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
-        <div> Calorii:<!-- trebuie sa aiba acelasi name ca sa formeze un grup -->
+        <!-- <div> Calorii:
             <p><label>Dietetic (calorii &lt; 350)
                 <input id="i_rad1"  name="gr_rad" value="0:350" type="radio"/>
             </label></p>
@@ -32,10 +27,10 @@
             <p><label>Toate
                 <input id="i_rad4" checked name="gr_rad" value="toate" type="radio"/>
             </label>
-        </div>
+        </div> -->
 
 
-        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="70"> <span id="infoRange">(0)</span></label>
+        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="20000"> <span id="infoRange">(0)</span></label>
         <label>Select simplu:
             <select id="inp-categorie">
                 <option id="sel-toate" selected value="toate">toate</option>
@@ -65,9 +60,10 @@
                         <h3 class="nume">Nume: <a href="/serviciu/<%-serv.id %>" ><span class="val-nume"><%- serv.nume%></span></a></h3>
                         <div class="info-serv">
                             <p class="pret">Pret: <span class="val-pret"><%- serv.pret%></span></p>
-                            <p class="calorii">Calorii: <span class="val-calorii"><%- serv.calorii%></span></p>
-                            <p class="gramaj">Gramaj: <span class="val-gramaj"><%- serv.gramaj%></span></p>
+                            <p class="grad_complexitate">Complexitate: <span class="val-complexitate"><%- serv.complexitate%></span></p>
+                            <p class="durata">Durata: <span class="val-durata"><%- serv.durata%></span></p>
                         </div>
+                        <p class="tip_serviciu">Tip serviciu:<span class="val-tip_serviciu"><%- serv.tiptip_serviciu%></span></p>
                         <p class="categorie">Categorie:<span class="val-categorie"><%- serv.categorie%></span></p>
                         <figure>
                             <a href="/serviciu/<%-serv.id %>" ><img src="/resurse/imagini/servicii/<%- serv.imagine %>" style="width:50%;height:auto;" alt="[imagine <%- serv.nume %>]" /></a>

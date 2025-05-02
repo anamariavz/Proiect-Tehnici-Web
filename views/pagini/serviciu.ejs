@@ -9,10 +9,7 @@
         <link href="/resurse/css/serviciu.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
-        <header class="c1" id="titlu" >
-            <h1 style="color:red;">Cofetaria <span>Dulcelind</span></h1>
-            <%- include("../fragmente/nav") %>
-        </header>
+        
     <main>
         <section>
             <h2>Pagină serviciu</h2>
@@ -20,11 +17,12 @@
                     <h3><span class="nume"><%- locals.serv.nume %></span></h3>
                     <p>Pret: <span class="pret"><%- locals.serv.pret %> </span></p>
                     <p>Descriere: <span class="descriere"><%- locals.serv.descriere %> </span></p>
-                    <p>Ingrediente: <span class="ingrediente"><%- locals.serv.ingrediente %> </span></p>
-                    <p>Calorii: <span class="calorii"><%- locals.serv.calorii %> </span></p>
-                    <p>Gramaj: <span class="gramaj"><%- locals.serv.gramaj %> </span></p>
+                    <p>Ingrediente: <span class="materiale_folosite"><%- locals.serv.materiale_folosite %> </span></p>
+                    <p>Calorii: <span class="grad_complexitate"><%- locals.serv.grad_complexitate %> </span></p>
+                    <p>Gramaj: <span class="durata"><%- locals.serv.durata %> </span></p>
+                    <p>Tip serviciu: <span class="tip_serviciu"><%- locals.serv.tip_serviciu %> </span></p>
                     <p>Categorie: <span class="categorie"><%- locals.serv.categorie %> </span></p>
-                    <p>Pentru diabetici: <span class="pt_diabetici"><%- locals.serv.pt_diabetici %> </span></p>
+                    <p>Pentru diabetici: <span class="necesita_anestezie"><%- locals.serv.necesita_anestezie %> </span></p>
                     <p>Data adăugare: <span class="categorie"><%- locals.serv.data_adaugare %> </span></p>
                     <figure class="imag-serviciu">
                         <img  src="/resurse/imagini/servicii/<%- locals.serv.imagine %>" alt="[imagine <%- locals.serv.nume %>]" />
