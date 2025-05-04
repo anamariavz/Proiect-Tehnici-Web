@@ -1,23 +1,24 @@
-
-
-main{
-    --padd-main:1rem;
-    padding-left:var(--padd-main);
-    padding-right:var(--padd-main);
+main {
+    --padd-main: 1rem;
+    padding-left: var(--padd-main);
+    padding-right: var(--padd-main);
 }
 
-.grid-servicii{
-    display:grid;
+.grid-servicii {
+    display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap:1rem;
+    grid-gap: 1rem;
 }
-.grid-servicii .serviciu{
+
+.grid-servicii .serviciu {
     border-radius: 2rem;
     box-shadow: 0px 0px 0.8rem 0.3rem grey;
     overflow: hidden;
+    position: relative;
 }
 
-.grid-servicii .serviciu h3{
+/* Titlu articol */
+.grid-servicii .serviciu h3 {
     background-color: var(--culoare-roz-inchis);
     text-align: center;
     margin-top: 0;
@@ -25,57 +26,84 @@ main{
     padding-bottom: 0.5rem;
 }
 
-.grid-servicii .serviciu h3 a{
-    color:black;
+.grid-servicii .serviciu h3 a {
+    color: black;
 }
-.grid-servicii .serviciu h3 a:hover{
-    color:white;
+.grid-servicii .serviciu h3 a:hover {
+    color: white;
 }
-.grid-servicii .serviciu figure{
+
+/* Figura imagine (daca se foloseste <figure>) */
+.grid-servicii .serviciu figure {
     text-align: center;
 }
-.grid-servicii .serviciu figure img{
-    border:1px solid grey
+.grid-servicii .serviciu figure img {
+    border: 1px solid grey;
 }
-.grid-servicii .serviciu .info-serv{
-    display:flex;
+
+/* Info text de tip linie */
+.grid-servicii .serviciu .info-serv {
+    display: flex;
     background-color: var(--cl-marcare);
 }
-.grid-servicii .serviciu .info-serv p{
-    width:30%;
-    text-align:center;
-    font-weight:bold;
+.grid-servicii .serviciu .info-serv p {
+    width: 30%;
+    text-align: center;
+    font-weight: bold;
 }
 
-.grid-servicii .serviciu p.categorie{
-
-    text-align:center;
-    font-weight:bold;
+/* Linie de informatii */
+.linie-serviciu {
+    display: flex;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+.linie-serviciu p {
+    margin: 0 0.5rem;
+    flex: 1;
 }
 
-.info-servicii{
+/* Caseta info generala */
+.info-servicii {
     background-color: var(--cl-marcare);
-    padding:0.2rem;
+    padding: 0.2rem;
     box-shadow: 0px 0px 0.5rem 0.15rem grey;
 }
 
-.serviciu{
-    position: relative;
-}
-.selecteaza-cos{
+/* Buton de selectare */
+.selecteaza-cos {
     display: inline-block;
     background-color: var(--culoare-mov);
-    position:absolute;
-    bottom:0.5rem;
-    right:0.5rem;
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
     border-radius: 0.5rem;
     text-align: center;
-    padding:0.3rem;
-    border:1px solid transparent;
+    padding: 0.3rem;
+    border: 1px solid transparent;
+}
+.selecteaza-cos:hover {
+    background-color: var(--cl-marcare);
+    border: 1px solid var(--culoare-mov);
 }
 
-.selecteaza-cos:hover{
-    background-color: var(--cl-marcare);
-    
-    border:1px solid  var(--culoare-mov);
+/* === DESCRIERE + IMAGINE LANGA === */
+.descriere-imagine {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem;
+}
+
+.descriere-imagine p {
+    flex: 1;
+    margin: 0;
+}
+
+.descriere-imagine img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border: 1px solid grey;
 }

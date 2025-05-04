@@ -290,16 +290,13 @@ main{
     margin: 0 auto;
 }
 
-
 .container-iframe {
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;  /* aliniază tab-urile la baza video-ului */
-    position: relative;
+    position: relative; 
     width: 100%;
     height: auto;
-    
 }
+
 
 .container-iframe > iframe {
     flex-grow: 1;
@@ -308,12 +305,13 @@ main{
     aspect-ratio: 16 / 9;
 }
 
+
 .taburi-iframe {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
     align-items: flex-end;
-    z-index: 1000;
+    transform: translateY(23.5px); 
+    margin-top: auto;
 }
 
 .taburi-iframe > a {
@@ -449,6 +447,23 @@ tfoot {
 
     }
 
+    .container-iframe {
+        margin-bottom: 100px;
+    }
+    
+    .taburi-iframe {
+        bottom: -10px;
+        right: 10px;
+        transform: translateY(21.5px);
+    }
+    
+    .taburi-iframe > a {
+        width: 60px;
+        height: 40px;
+        line-height: 12px;
+        font-size: 0.45rem;
+    }
+
     .table-container {
         overflow-x: auto;
     }
@@ -488,6 +503,23 @@ tfoot {
         grid-area: pdf;
         width: 100%;
         height: auto;
+    }
+    
+    .container-iframe {
+        margin-bottom: 60px;
+    }
+    
+    .taburi-iframe {
+        bottom: -10px;
+        right: 5px;
+        transform: translateY(15.7px);
+    }
+    
+    .taburi-iframe > a {
+        width: 115px;
+        height: 42px;
+        font-size: 0.8rem;
+        line-height: 20px;
     }
     
     .table-container {

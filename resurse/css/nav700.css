@@ -1,5 +1,11 @@
 #hamburger {
+  padding: 5px;
   display: block;
+}
+
+nav {
+  position: relative;
+  margin-bottom: 10px;
 }
 
 .hamburger-meniu {
@@ -24,28 +30,33 @@
 
 /* Meniul */
 ul.meniu {
-  display: none; /* Meniul este ascuns de la început */
+  display: none; /* Meniul este ascuns de la inceput */
   list-style-type: none;
   padding: 0;
   margin: 0;
   width: 100%;
   background-color: var(--culoare-deschisa);
   position: absolute;
-  top: 100%; /* Plasează meniul sub hamburger */
+  top: 100%; /* Plaseaza meniul sub hamburger */
   left: 0;
-  z-index: 20;
+  /* z-index: 0; */
 }
 
-/* Selectorul corect pentru afișarea meniului */
+
 #ch-menu:checked ~ ul.meniu {
   display: block;
 }
 
 /* Submeniurile */
+
 ul.meniu ul {
-  position: relative;
   display: none;
+  padding: 0;
+  margin: 0;
+  background-color: var(--culoare-deschisa);
   width: 100%;
+  position: static;
+  z-index: 120;
 }
 
 ul.meniu li {

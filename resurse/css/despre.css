@@ -9,7 +9,7 @@
 
 hr.linie-baloane {
   border: none;
-  height: 52px; /* puțin mai mare decât balonul mare */
+  height: 52px; 
   margin: 30px 0;
   background: transparent;
   position: relative;
@@ -17,8 +17,8 @@ hr.linie-baloane {
 
 /* Containerul general */
 .baloane-container {
-  width: 100vw; /* 100% din vizualizare, fără limite */
-  margin: -52px 0 30px 0; /* eliminăm "auto" care centra */
+  width: 100vw; 
+  margin: -52px 0 30px 0; 
   height: 52px;
   position: relative;
   display: flex;
@@ -31,9 +31,9 @@ hr.linie-baloane {
 /* Grupul de baloane */
 .baloane-grup {
   position: relative;
-  width: 70px; /* spațiu pentru un set mare+mediu+mic */
+  width: 70px; /* spatiu pentru un set mare+mediu+mic */
   height: 42px;
-  margin-right: -15px; /* distanță între grupuri */
+  margin-right: -15px; /* distanta intre grupuri */
 }
 
 /* Baloanele individuale */
