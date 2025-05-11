@@ -1,36 +1,34 @@
 .galerie-animata {
-  position: relative;
-  width: 90vw;
-  max-width: 600px;
-  aspect-ratio: 1/1;
-  margin: 2rem auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
   gap: 5px;
+  width: 90vw;
+  max-width: 600px;
+  margin: 2rem auto;
+  aspect-ratio: 1/1;
 }
 .galerie-animata .patrat {
-  position: relative;
   overflow: hidden;
+  transition: transform 0.4s ease-in-out;
+  z-index: 0;
 }
 .galerie-animata .patrat img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease, z-index 0.4s;
-  position: relative;
-  z-index: 1;
+  transition: transform 0.4s ease-in-out, z-index 0.2s;
 }
 .galerie-animata .patrat.activ {
+  transform: scale(3);
   z-index: 10;
 }
 .galerie-animata .patrat.activ img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  transform: scale(1.05);
+}
+.galerie-animata .patrat:hover {
   transform: scale(3);
   z-index: 10;
-  pointer-events: none;
+}
+.galerie-animata .patrat:hover img {
+  transform: scale(1.05);
 }

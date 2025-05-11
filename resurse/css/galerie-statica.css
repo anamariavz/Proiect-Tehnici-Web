@@ -56,15 +56,6 @@
   #grid-galerie figure:nth-of-type(14) { grid-area: 7 / 3 / 8 / 4; }
   
 
-  /* #grid-galerie figure {
-    aspect-ratio: 1 / 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 4px solid white;
-    counter-increment: roman-counter;
-    overflow: hidden;
-  } */
 
   #grid-galerie figure {
     display: flex;

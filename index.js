@@ -139,7 +139,7 @@ function afisareEroare(res, identificator, titlu, text, imagine){
 //compilarea fisierelor scss in css si backup
 function compileazaScss(caleScss, caleCss){
     console.log("cale:", caleCss);
-    if (!caleCss) {
+    if (!caleCss) { 
         let numeFisExt = path.basename(caleScss);
         let numeFis = numeFisExt.split(".")[0];
         caleCss = numeFis + ".css";
@@ -155,7 +155,7 @@ function compileazaScss(caleScss, caleCss){
         fs.mkdirSync(caleBackup, { recursive: true });
     }
 
-    // Backup doar dacă CSS-ul există
+    // Backup doar dacă CSS-ul există 
     if (fs.existsSync(caleCss)) {
         let timestamp = new Date().toISOString().replace(/[:.-]/g, "_");
         let numeBackup = `${path.basename(caleCss, '.css')}_${timestamp}.css`;
@@ -178,7 +178,7 @@ function compileazaScss(caleScss, caleCss){
 
 // compilarea fisierelor scss din foderul resurse/scss
 //compileazaScss("a.scss");
-vFisiere=fs.readdirSync(obGlobal.folderScss);
+vFisiere=fs.readdirSync(obGlobal.folderScss); //vFisiere vectorul de nume de fisiere
 for( let numeFis of vFisiere ){
     if (path.extname(numeFis)==".scss"){
         compileazaScss(numeFis);

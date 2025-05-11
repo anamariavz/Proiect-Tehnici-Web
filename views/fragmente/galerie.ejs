@@ -64,11 +64,12 @@
 </section>
 
 
-<section class="galerie-animata">
-    <% for (let img of imagini_animata) { %>
-        <figure>
-            <img src="<%= img.fisier_mediu %>" alt="<%= img.descriere %>">
-            <figcaption><%= img.descriere %></figcaption>
-        </figure>
-    <% } %>
-</section>
+
+
+<div class="galerie-animata">
+    <% imagini.slice(0, 9).forEach(function(img, index) { %>
+      <div class="patrat <%= index === 0 ? 'activ' : '' %>">
+        <img src="<%= img.fisier_mediu %>" alt="<%= img.descriere || '' %>">
+      </div>
+    <% }); %>
+  </div>

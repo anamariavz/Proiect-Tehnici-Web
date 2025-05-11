@@ -16,7 +16,14 @@
         <%- include("../fragmente/header.ejs")  %>
 
         <main>
-            <!-- A doua pagina</br> -->
+            </br>
+            <video id="video-vtt" controls preload="metadata" poster="resurse/imagini/compozit-dentar.jpg">
+                <source src="resurse/video/videoclip.mp4" type="video/mp4">
+                <source src="resurse/video/videoclip.ogv" type="video/ogv">
+                <track default src="resurse/subtitrari-ro.vtt" kind="subtitles" srclang="ro" label="Romana" />
+                <track src="resurse/subtitrari-en.vtt" kind="subtitles" srclang="en" label="English" />
+
+            </video>
 
             <hr class="linie-baloane">
                 <div class="baloane-container">
@@ -122,13 +129,7 @@
                     </div>
                 </div>
 
-                <video id="video-vtt" controls preload="metadata" poster="resurse/imagini/compozit-dentar.jpg">
-                    <source src="resurse/video/videoclip.mp4" type="video/mp4">
-                    <source src="resurse/video/videoclip.ogv" type="video/ogv">
-                    <track default src="resurse/subtitrari-ro.vtt" kind="subtitles" srclang="ro" label="Romana" />
-                    <track src="resurse/subtitrari-en.vtt" kind="subtitles" srclang="en" label="English" />
-
-                </video>
+                
                 
               
         </main>

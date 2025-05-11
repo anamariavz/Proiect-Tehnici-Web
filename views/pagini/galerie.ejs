@@ -21,6 +21,18 @@
 
         <main> 
             <%- include("../fragmente/galerie.ejs")  %>
+
+            <script>
+                let current = 0;
+                const patrate = document.querySelectorAll('.galerie-animata .patrat');
+              
+                setInterval(() => {
+                  patrate.forEach(p => p.classList.remove('activ'));
+                  patrate[current].classList.add('activ');
+                  current = (current + 1) % patrate.length;
+                }, 2000);
+              </script>
+              
               
         </main>
     
