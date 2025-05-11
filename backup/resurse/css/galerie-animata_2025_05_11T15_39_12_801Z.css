@@ -1,0 +1,26 @@
+.galerie-animata {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+.galerie-animata figure {
+  margin: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+.galerie-animata figure:hover {
+  transform: scale(1.03);
+}
+.galerie-animata figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.galerie-animata figure figcaption {
+  text-align: center;
+  background: #f2f2f2;
+  padding: 0.5rem;
+}

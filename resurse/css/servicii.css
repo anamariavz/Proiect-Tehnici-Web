@@ -107,3 +107,14 @@ main {
     object-fit: cover;
     border: 1px solid grey;
 }
+
+body {
+    background-image: url('/resurse/imagini/bg1.1.jpeg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transition: background-image 1s ease-in-out;
+  }
+  
+
+  

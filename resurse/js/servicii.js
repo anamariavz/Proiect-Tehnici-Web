@@ -19,3 +19,19 @@ window.onload = function(){
     }  
 
 }
+
+window.addEventListener("load", function() {
+    const imaginiBackground = [
+        '/resurse/imagini/bg1.1.jpeg',
+        '/resurse/imagini/bg2.2.jpeg',
+        '/resurse/imagini/bg3.3.jpeg'
+    ];
+    let index = 0;
+
+    setInterval(() => {
+        index = (index + 1) % imaginiBackground.length;
+        document.body.style.backgroundImage = `url('${imaginiBackground[index]}')`;
+    }, 10000); // 60 secunde
+});
+
+

@@ -1,4 +1,4 @@
-#ch-menu:checked ~ ul.meniu + label .hamburger-menu .bar {
+/* #ch-menu:checked ~ ul.meniu + label .hamburger-menu .bar {
   animation: animate-bar 0.9s forwards;
 }
 #ch-menu:checked ~ ul.meniu + label .hamburger-menu .bar:nth-child(1) {
@@ -9,4 +9,4 @@
 }
 #ch-menu:checked ~ ul.meniu + label .hamburger-menu .bar:nth-child(3) {
   animation-delay: 0.9s;
-}
+} */

@@ -1,12 +1,15 @@
-const express= require("express");
-const path= require("path");
-const fs = require("fs");
-const sharp = require("sharp");
-const sass = require("sass");
-const pg = require("pg");
+// importam pachetele necesare pentru: 
+const express= require("express");      //framework server web
+const path= require("path");            //lucrul cu caile de fisiere
+const fs = require("fs");               //          sistemul de fisiere 
+const sharp = require("sharp");         //a procesa imaginile 
+const sass = require("sass");           //a compila SCSS in CSS
+const pg = require("pg");               //a ne conecta si a interactiona cu PostgreSQL
 
+//se extrage clientul din modulul pg
 const Client=pg.Client;
 
+//se creaza un nou client pt BD
 client=new Client({
     database:"clinica_happy_dent",
     user:"anamaria",
@@ -16,28 +19,30 @@ client=new Client({
 })
 
 
-client.connect()
+client.connect() // conectarea la BD
+
 client.query("select * from servicii", function(err, rezultat ){
     console.log(err)    
     console.log(rezultat)
 })
+
+//afisarea rezultatelor din interogarea enum complexitate
 client.query("select * from unnest(enum_range(null::complexitate))", function(err, rezultat ){
     console.log(err)    
     console.log(rezultat)
 })
 
 
-app= express();
+app= express(); // initiaza Express
 
-
+//afisarea cailor de lucru in consola
 console.log("Folderul proiectului: ", __dirname)
 console.log("Calea fisierului index.js: ", __filename)
 console.log("Folderul curent de lucru: ", process.cwd())
 
 
-app.set("view engine", "ejs");
-
-
+app.set("view engine", "ejs"); // ejs permite ionorporarea de cod js in fisiere HTML
+// view engine  ----> Express va utiliza motorul ejs pentru a procesa si returna cererile de vizualizari ca HTML
 
 obGlobal={
     obErori:null,
@@ -47,6 +52,7 @@ obGlobal={
     folderBackup: path.join(__dirname, "backup")
 }
 
+// se creeaza folderele specificate daca nu exista 
 vect_foldere = ["temp", "backup", "temp1"]
 for (let folder of vect_foldere){
     let caleFolder = path.join(__dirname, folder) 
@@ -55,13 +61,14 @@ for (let folder of vect_foldere){
     }
 }
 
-
+// initializarea obiectului cu erori din fiserul JSON
 function initErori(){
     let continut = fs.readFileSync(path.join(__dirname,"resurse/json/erori.json")).toString("utf-8");
     console.log(continut)
     obGlobal.obErori=JSON.parse(continut)
     console.log(obGlobal.obErori)
     
+    //actualizam calea imaginilor 
     obGlobal.obErori.eroare_default.imagine=path.join(obGlobal.obErori.cale_baza, obGlobal.obErori.eroare_default.imagine)
     for (let eroare of obGlobal.obErori.info_erori){
         eroare.imagine=path.join(obGlobal.obErori.cale_baza, eroare.imagine)
@@ -72,18 +79,20 @@ function initErori(){
 
 initErori()
 
+// initializarea obiectului cu img pt galerie
 function initImagini(){
     var continut= fs.readFileSync(path.join(__dirname,"resurse/json/galerie.json")).toString("utf-8");
 
     obGlobal.obImagini=JSON.parse(continut);
     let vImagini=obGlobal.obImagini.imagini;
 
+    // se creaza folderul pentru img de dim medie daca nu exista
     let caleAbs=path.join(__dirname,obGlobal.obImagini.cale_galerie);
     let caleAbsMediu=path.join(__dirname,obGlobal.obImagini.cale_galerie, "mediu");
     if (!fs.existsSync(caleAbsMediu))
         fs.mkdirSync(caleAbsMediu);
 
-    //for (let i=0; i< vErori.length; i++ )
+    //generam imaginile medii si setam caile pentru fiecare
     for (let imag of vImagini){
         [numeFis, ext]=imag.fisier.split(".");
         let caleFisAbs=path.join(caleAbs,imag.fisier);
@@ -97,6 +106,7 @@ function initImagini(){
 }
 initImagini();
 
+// afiseaza o pagina de eroare personalizata 
 function afisareEroare(res, identificator, titlu, text, imagine){
     let eroare= obGlobal.obErori.info_erori.find(function(elem){ 
                         return elem.identificator==identificator
@@ -104,7 +114,7 @@ function afisareEroare(res, identificator, titlu, text, imagine){
     if(eroare){
         if(eroare.status)
             res.status(identificator)
-        var titluCustom=titlu || eroare.titlu;
+        var titluCustom=titlu || eroare.titlu;  // se va afisa titlul, daca acesta exista sau eroarea aferenta
         var textCustom=text || eroare.text;
         var imagineCustom=imagine || eroare.imagine;
 
@@ -126,6 +136,7 @@ function afisareEroare(res, identificator, titlu, text, imagine){
 
 }
 
+//compilarea fisierelor scss in css si backup
 function compileazaScss(caleScss, caleCss){
     console.log("cale:", caleCss);
     if (!caleCss) {
@@ -165,7 +176,7 @@ function compileazaScss(caleScss, caleCss){
     }
 }
 
-
+// compilarea fisierelor scss din foderul resurse/scss
 //compileazaScss("a.scss");
 vFisiere=fs.readdirSync(obGlobal.folderScss);
 for( let numeFis of vFisiere ){
@@ -174,6 +185,7 @@ for( let numeFis of vFisiere ){
     }    
 }
 
+// monitorizarea modificarilor fisierelor scss
 fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
     console.log(eveniment, numeFis);
     if (eveniment=="change" || eveniment=="rename"){
@@ -186,10 +198,10 @@ fs.watch(obGlobal.folderScss, function(eveniment, numeFis){
 
 
 app.use((req, res, next) => {
-    if (req.url.endsWith(".vtt")) {
-        res.setHeader("Content-Type", "text/vtt");
+    if (req.url.endsWith(".vtt")) { // verifica daca calea catre fiser se termina cu .vtt si daca da se executa 
+        res.setHeader("Content-Type", "text/vtt"); // setaeza header-ul la text/vtt  -->spune browserului ca fiserul transmis este unul de subtitrari
     }
-    next();
+    next(); // trimite cererea mai departe
 });
 
 
@@ -208,6 +220,25 @@ app.get(["/","/index","/home"], function(req, res){
 app.get("/despre", function(req, res){
     res.render("pagini/despre");
 })
+
+// app.get("/galerie", (req, res) => {
+//     res.render("pagini/galerie", {
+//         imagini: obGlobal.obImagini.imagini // <-- aici era lipsa!
+//     });
+// });
+
+app.get("/galerie", (req, res) => {
+    const nrMax = 8;
+    let toateImaginile = obGlobal.obImagini.imagini;
+    let imaginiRandom = [...toateImaginile]
+        .sort(() => 0.5 - Math.random())
+        .slice(0, nrMax);
+
+    res.render("pagini/galerie", {
+        imagini: toateImaginile, // galeria completă (statică)
+        imagini_animata: imaginiRandom // galeria animată
+    });
+});
 
 app.get("/index/a", function(req, res){
     res.render("pagini/index");
@@ -240,6 +271,7 @@ app.get("/abc", function(req, res, next){
     console.log("------------")
 })
 
+// afisarea serviciilor din BD 
 app.get("/servicii", function(req, res){
     console.log(req.query)
     var conditieQuery=""; // TO DO where din parametri
@@ -263,16 +295,17 @@ app.get("/servicii", function(req, res){
     });
 })
 
+// blocarea accesului direct la resurse cu eroare 403 
 app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){
     afisareEroare(res,403);
-})
+})// expresi regulata care interzice accesul direct la cai care incep cu /resurse/ urmat de alte litere, cifre, _, - sau /
 
-
+// blocarea accesului direct la fisisere .ejs
 app.get("/*.ejs", function(req, res, next){
     afisareEroare(res,400);
 })
 
-
+// orice cerere get care nu a fost prinsa anterior va ajunge aici 
 app.get("/*", function(req, res, next){
     try{
         res.render("pagini"+req.url,function (err, rezultatRandare){

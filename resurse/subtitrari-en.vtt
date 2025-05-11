@@ -1,50 +1,40 @@
 WEBVTT
 
 STYLE
-::cue(.Sub) {
+::cue{
   background-color: var(--culoare-background1);
   color: var(--culoare-inchisa1); 
  
 }
-::cue(.dreaptaSus) {
-  position: top right;
-  text-align: right;
-  background-color: var(--culoare-background1);
-  color: var(--culoare-inchisa1); 
-}
-
-00:00.000 --> 00:01.000 position:90% align:right size:30% line:-50
-<c.dreaptaSus><b>Clinica Stomatologica</b> - <b>HappyDent</b></c>
-
 00:01.000 --> 00:06.590
-<c.Sub>When repairing a small cavity, a <u>composite</u> filling can restore your tooth to shape and function,</c>
+When repairing a small cavity, a <u>composite</u> filling can restore your tooth to shape and function,
 
 00:07.000 --> 00:13.590
-<c.Sub>while also mimicking the tooth's natural shade. During the first step your tooth is prepared by</c> 
+while also mimicking the tooth's natural shade. During the first step your tooth is prepared by
 
 00:14.000 --> 00:17.590
-<c.Sub>removing the decayed portion, leaving a small area that will be filled with the composite.</c>
+removing the decayed portion, leaving a small area that will be filled with the composite.
 
 00:18.000 --> 00:24.590
-<c.Sub>Next a special bonding agent is applied to the prepared area. This bonding process helps</c>
+Next a special bonding agent is applied to the prepared area. This bonding process helps
 
 00:25.000 --> 00:30.590
-<c.Sub>to ensure that the filling will attach to the natural tooth structure. A special curing light</c>
+to ensure that the filling will attach to the natural tooth structure. A special curing light
 
 00:31.000 --> 00:37.590
-<c.Sub>is then used to set the bonding fluid. Your dentist then applies the composite material</c>
+is then used to set the bonding fluid. Your dentist then applies the composite material
 
 00:38.000 --> 00:41.590
-<c.Sub>to fill the prepared area and shapes it to match the contours of your tooth surface.</c>
+to fill the prepared area and shapes it to match the contours of your tooth surface.
 
 00:42.000 --> 00:47.590
-<c.Sub>Again using the special curing light, the shaped composite is hardened to resist the</c>
+Again using the special curing light, the shaped composite is hardened to resist the
 
 00:48.000 --> 00:53.590
-<c.Sub>force of the opposing teeth. As a final step, your dentist will polish the composite filling</c>
+force of the opposing teeth. As a final step, your dentist will polish the composite filling
 
 00:54.000 --> 00:58.590
-<c.Sub>to smoothen it and give it a similar sheen to the rest of your tooth. Once completed,</c>
+to smoothen it and give it a similar sheen to the rest of your tooth. Once completed,
 
 00:59.000 --> 01:05.000
-<c.Sub>your tooth is free of decay and restored to its natural strength and appearance</c>
+your tooth is free of decay and restored to its natural strength and appearance

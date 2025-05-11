@@ -1,0 +1,74 @@
+<section id="galerie-statica">
+    <div id="container-titlu">
+        <h2 id="Galerie">Galerie</h2>
+        <div id="text-reflectat">Galerie</div>
+    </div>
+    <div id="grid-galerie">
+      <%
+        vect_zile = ["luni", "marti", "miercuri", "joi", "vineri", "sambata", "duminica"];
+        d = new Date();
+        ziua_curenta = vect_zile[d.getDay() === 0 ? 6 : d.getDay() - 1]; // corectam indexul
+  
+        function zi_in_interval(zi, interval) {
+          const ord = { "luni": 0, "marti": 1, "miercuri": 2, "joi": 3, "vineri": 4, "sambata": 5, "duminica": 6 };
+          let zi_index = ord[zi];
+          let start = ord[interval[0]];
+          let end = ord[interval[1]];
+          if (start <= end) return zi_index >= start && zi_index <= end;
+          return zi_index >= start || zi_index <= end;
+        }
+  
+        let pozitii = Array(14).fill(null);
+        let index = 0;
+        for (let imag of locals.imagini) {
+            let afisare = false;
+            if (imag.intervale_zile) {
+                for (let interval of imag.intervale_zile) {
+                    if (zi_in_interval(ziua_curenta, interval)) {
+                        afisare = true;
+                        break;
+                    }
+                }
+            } else {
+                afisare = true;
+            }
+  
+            if (afisare && index < 14) {
+                pozitii[index++] = imag;
+            }
+        }
+      %>
+    <% for (let i = 0; i < 14; i++) { %>
+        <% if (pozitii[i]) { %>
+        <figure>
+            <picture>
+            <source srcset="<%- pozitii[i].fisier_mediu || pozitii[i].fisier %>" media="screen and (max-width:1000px)" />
+            <img src="<%- pozitii[i].fisier %>" alt="<%- pozitii[i].descriere %>">
+            </picture>
+            <figcaption>
+                <%- pozitii[i].descriere %>
+                <% if (pozitii[i].atributie) { %>
+                    <br>
+                    <small>
+                    Foto: <a href="<%- pozitii[i].atributie.sursa %>" target="_blank" rel="noopener noreferrer">
+                        <%- pozitii[i].atributie.autor %>
+                    </a> 
+                    - Licență: <%= pozitii[i].atributie.licenta %>
+                    </small>
+                <% } %>
+            </figcaption>
+        </figure>
+        <% } %>
+    <% } %>
+    </div>
+</section>
+
+
+<section class="galerie-animata">
+    <% for (let img of imagini_animata) { %>
+        <figure>
+            <img src="<%= img.fisier_mediu %>" alt="<%= img.descriere %>">
+            <figcaption><%= img.descriere %></figcaption>
+        </figure>
+    <% } %>
+</section>
