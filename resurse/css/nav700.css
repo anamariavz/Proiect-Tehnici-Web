@@ -43,7 +43,7 @@ ul.meniu {
 }
 
 
-#ch-menu:checked ~ ul.meniu {
+#ch-menu:checked + label + ul.meniu {
   display: block;
 }
 
@@ -88,15 +88,17 @@ ul.meniu li:hover > ul {
   }
 }
 
-#ch-menu:checked ~ label .bar:nth-child(1) {
+#ch-menu:checked + label .bar:nth-child(1) {
   animation: animate-bar 0.6s ease forwards;
   animation-delay: 0ms;
 }
-#ch-menu:checked ~ label .bar:nth-child(2) {
+#ch-menu:checked + label .bar:nth-child(2) {
   animation: animate-bar 0.6s ease forwards;
   animation-delay: 300ms;
 }
-#ch-menu:checked ~ label .bar:nth-child(3) {
+#ch-menu:checked + label .bar:nth-child(3) {
   animation: animate-bar 0.6s ease forwards;
   animation-delay: 600ms;
 }
+
+

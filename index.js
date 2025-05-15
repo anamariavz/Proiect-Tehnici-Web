@@ -41,7 +41,7 @@ console.log("Calea fisierului index.js: ", __filename)
 console.log("Folderul curent de lucru: ", process.cwd())
 
 
-app.set("view engine", "ejs"); // ejs permite ionorporarea de cod js in fisiere HTML
+app.set("view engine", "ejs"); // ejs permite incorporarea de cod js in fisiere HTML
 // view engine  ----> Express va utiliza motorul ejs pentru a procesa si returna cererile de vizualizari ca HTML
 
 obGlobal={
