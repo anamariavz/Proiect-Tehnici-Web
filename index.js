@@ -221,22 +221,25 @@ app.get("/despre", function(req, res){
     res.render("pagini/despre");
 })
 
-// app.get("/galerie", (req, res) => {
-//     res.render("pagini/galerie", {
-//         imagini: obGlobal.obImagini.imagini // <-- aici era lipsa!
-//     });
-// });
 
 app.get("/galerie", (req, res) => {
-    const nrMax = 8;
-    let toateImaginile = obGlobal.obImagini.imagini;
-    let imaginiRandom = [...toateImaginile]
-        .sort(() => 0.5 - Math.random())
-        .slice(0, nrMax);
+    const toateImaginile = obGlobal.obImagini.imagini; // Folosește array-ul procesat
+
+    let optiuni = [4, 9, 16];
+    let nrImagini = optiuni[Math.floor(Math.random() * optiuni.length)];
+
+    let imaginiSelectate = [];
+    let imaginiFiltrate = [...toateImaginile];
+
+    while (imaginiSelectate.length < nrImagini && imaginiFiltrate.length > 0) {
+        let idx = Math.floor(Math.random() * imaginiFiltrate.length);
+        imaginiSelectate.push(imaginiFiltrate[idx]);
+        imaginiFiltrate.splice(idx, 1);
+    }
 
     res.render("pagini/galerie", {
-        imagini: toateImaginile, // galeria completă (statică)
-        imagini_animata: imaginiRandom // galeria animată
+        imagini: toateImaginile,         // galeria statică (toate imaginile)
+        imaginiGalerie: imaginiSelectate // galeria animată/random
     });
 });
 

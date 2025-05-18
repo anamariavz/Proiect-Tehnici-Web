@@ -22,16 +22,66 @@
         <main> 
             <%- include("../fragmente/galerie.ejs")  %>
 
+
+          <% const nrRanduri = Math.sqrt(imaginiGalerie.length); %>
+            <div class="galerie-animata" id="galerie-animata" style="--nr:<%= nrRanduri %>;">
+                <div class="container-grid">
+                    <% imaginiGalerie.forEach((img, i) => { %>
+                        <div class="patrat" data-index="<%= i %>">
+                            <img src="<%= img.fisier_mediu %>" alt="<%= img.descriere %>">
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+
             <script>
-                let current = 0;
-                const patrate = document.querySelectorAll('.galerie-animata .patrat');
-              
-                setInterval(() => {
-                  patrate.forEach(p => p.classList.remove('activ'));
-                  patrate[current].classList.add('activ');
-                  current = (current + 1) % patrate.length;
-                }, 2000);
-              </script>
+                const galerie = document.querySelector('.galerie-animata');
+                const grid = galerie.querySelector('.container-grid');
+                const patrate = galerie.querySelectorAll('.patrat');
+                let index = 0;
+
+                const nr = parseInt(getComputedStyle(galerie).getPropertyValue('--nr')) || 3;
+                const scale = nr;
+
+                function updateTransform() {
+                const row = Math.floor(index / nr);
+                const col = index % nr;
+
+                const tx = `${(0.5 - (col + 0.5) / nr) * 100}%`;
+                const ty = `${(0.5 - (row + 0.5) / nr) * 100}%`;
+
+                grid.style.setProperty('--tx', tx);
+                grid.style.setProperty('--ty', ty);
+                grid.style.setProperty('--scale', scale);
+                }
+
+                function animate() {
+                // Zoom out: arată tot gridul
+                grid.style.setProperty('--scale', '1');
+                grid.style.setProperty('--tx', '0%');
+                grid.style.setProperty('--ty', '0%');
+
+                // După o scurtă pauză, zoom in pe următoarea imagine
+                setTimeout(() => {
+                    index = (index + 1) % patrate.length;
+                    updateTransform();
+                }, 500);
+                }
+
+                // Inițial, afișează prima imagine mărită
+                updateTransform();
+
+                // Pornește animația
+                let interval = setInterval(animate, 2000);
+
+                // Oprește animația la hover
+                galerie.addEventListener('mouseenter', () => clearInterval(interval));
+                galerie.addEventListener('mouseleave', () => {
+                interval = setInterval(animate, 2000);
+                });
+
+            </script>
+
               
               
         </main>

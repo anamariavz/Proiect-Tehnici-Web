@@ -1,0 +1,33 @@
+.galerie-animata {
+  overflow: hidden;
+  position: relative;
+}
+.galerie-animata .container-grid {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  grid-template-columns: repeat(var(--nr), 1fr);
+  grid-template-rows: repeat(var(--nr), 1fr);
+  transition: transform 1s ease-in-out;
+  transform-origin: center center;
+}
+.galerie-animata.zoom-out .container-grid {
+  transform: scale(1);
+}
+.galerie-animata.zoom-in .container-grid {
+  transform: scale(var(--scale)) translate(var(--tx), var(--ty));
+}
+.galerie-animata .patrat {
+  width: 100%;
+  height: 100%;
+}
+.galerie-animata .patrat img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media (max-width: 991px) {
+  .galerie-animata {
+    display: none;
+  }
+}

@@ -62,14 +62,3 @@
     <% } %>
     </div>
 </section>
-
-
-
-
-<div class="galerie-animata">
-    <% imagini.slice(0, 9).forEach(function(img, index) { %>
-      <div class="patrat <%= index === 0 ? 'activ' : '' %>">
-        <img src="<%= img.fisier_mediu %>" alt="<%= img.descriere || '' %>">
-      </div>
-    <% }); %>
-  </div>

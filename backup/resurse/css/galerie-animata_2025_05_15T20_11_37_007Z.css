@@ -1,0 +1,63 @@
+#galerie-animata {
+  width: 600px;
+  height: 600px;
+  margin: 2em auto;
+  border: 20px solid transparent;
+  border-image: url("/resurse/imagini/border.png") 30 stretch;
+  overflow: hidden;
+  display: none;
+}
+@media screen and (min-width: 1200px) {
+  #galerie-animata {
+    display: block;
+  }
+}
+#galerie-animata:hover .container-grid {
+  animation-play-state: paused;
+}
+#galerie-animata .patrat {
+  width: 100%;
+  height: 100%;
+}
+#galerie-animata .patrat img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.patrat img {
+  transition: transform 0.7s cubic-bezier(0.86, 0, 0.07, 1), box-shadow 0.7s;
+  transform: scale(1);
+  z-index: 1;
+  box-shadow: none;
+}
+
+.patrat.activ img {
+  transform: scale(1.5);
+  z-index: 2;
+  box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.4666666667);
+}
+
+@keyframes galerieZoom {
+  0%, 100% {
+    transform: scale(3);
+  }
+  50% {
+    transform: scale(1);
+    transform-origin: center;
+  }
+}
+.container-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--nr), 1fr);
+  grid-template-rows: repeat(var(--nr), 1fr);
+  width: 100%;
+  height: 100%;
+  transform: scale(var(--nr));
+  transition: transform 1s ease-in-out;
+}
+
+.container-grid.active {
+  transform: scale(1);
+  transform-origin: var(--origin-x, center) var(--origin-y, center);
+}

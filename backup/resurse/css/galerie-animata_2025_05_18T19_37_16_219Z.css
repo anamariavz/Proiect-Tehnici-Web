@@ -1,0 +1,29 @@
+.galerie-animata {
+  overflow: hidden;
+  position: relative;
+  --durata: 1s;
+}
+.galerie-animata .container-grid {
+  display: grid;
+  width: 50%;
+  height: 50%;
+  grid-template-columns: repeat(var(--nr), 1fr);
+  grid-template-rows: repeat(var(--nr), 1fr);
+  transform-origin: center center;
+  transition: transform var(--durata) ease-in-out;
+  transform: scale(var(--scale, 1)) translate(var(--tx, 0), var(--ty, 0));
+}
+.galerie-animata .patrat {
+  width: 100%;
+  height: 100%;
+}
+.galerie-animata .patrat img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+@media screen and (max-width: 991px) {
+  .galerie-animata {
+    display: none;
+  }
+}
