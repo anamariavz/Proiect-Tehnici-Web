@@ -13,32 +13,58 @@
     <body>
         <%- include("../fragmente/header") %> 
     <main>
-        <label> Nume: <input type="text" id="inp-nume"></label>
-        <!-- <div> Calorii:
-            <p><label>Dietetic (calorii &lt; 350)
-                <input id="i_rad1"  name="gr_rad" value="0:350" type="radio"/>
-            </label></p>
-            <p><label>Mediu (350 &le; calorii &lt; 700)
-                <input id="i_rad2"  name="gr_rad" value="350:700" type="radio"/>
-            </label>
-            <p><label>Ridicat caloric (700 &le; calorii)
-                <input id="i_rad3" name="gr_rad" value="700:1000000000" type="radio"/>
-            </label>
-            <p><label>Toate
-                <input id="i_rad4" checked name="gr_rad" value="toate" type="radio"/>
-            </label>
-        </div> -->
+        <label> Nume: 
+            <input type="text" id="inp-nume" list="lista-servicii">
+            <ul id="lista-sugestii" class="autocomplete-list"></ul>
+        </label>
+
+        <datalist id="lista-servicii">
+            <% for (let serv of locals.servicii) { %>
+                <option value="<%- serv.nume %>">
+            <% } %>
+        </datalist>        
+        
+        <div> Anestezie:
+            <p>
+                <label>Cu anestezie
+                    <input id="i_rad1" name="gr_anestezie" value="true" type="radio"/>
+                </label>
+            </p>
+            <p>
+                <label>Fără anestezie
+                    <input id="i_rad2" name="gr_anestezie" value="false" type="radio"/>
+                </label>
+            </p>
+            <p>
+                <label>Toate
+                    <input id="i_rad3" checked name="gr_anestezie" value="toate" type="radio"/>
+                </label>
+            </p>
+        </div>
 
 
         <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="20000"> <span id="infoRange">(0)</span></label>
         <label>Select simplu:
-            <select id="inp-categorie">
+            <select id="inp-complexitate">
                 <option id="sel-toate" selected value="toate">toate</option>
                 <% for (let opt of locals.optiuni) { %>
-                    <option value="<%- opt.unnest %>"><%- opt.unnest %> </option>
+                    <option value="<%- opt.unnest %>"><%- opt.unnest %></option>
                 <% } %>
             </select>
         </label>
+
+        <label for="preturi">Selectează intervale de preț:</label><br>
+            <select id="preturi" multiple size="6">
+                <option value="30-200">30 - 200 lei</option>
+                <option value="200-1500">200 - 1500 lei</option>
+                <option value="1500-2000">1500 - 2000 lei</option>
+                <option value="2000-5000">2000 - 5000 lei</option>
+                <option value="5000-10000">5000 - 10000 lei</option>
+                <option value="10000-15000">10000 - 15000 lei</option>
+            </select>
+
+        <textarea id="commentBox" placeholder="Ex: +imagine -implant"></textarea>
+        <button id="filtrare-cuvinte">Filtrează după cuvinte cheie</button>
 
         <p>
         <button id="filtrare">Filtreaza</button> 
@@ -50,7 +76,7 @@
         </p>
       
         <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
-  
+        
         <section id="servicii">
 
             <h2>Servicii</h2>
@@ -60,6 +86,7 @@
                         <h3 class="nume">Nume: <a href="/serviciu/<%-serv.id %>" ><span class="val-nume"><%- serv.nume%></span></a></h3>
                         <div class="info-serv">
                             <p class="pret">Pret: <span class="val-pret"><%- serv.pret%></span></p>
+                            <p class="anestezie">Anestezie: <span class="val-anestezie"><%- serv.necesita_anestezie %></span></p>
                             <p class="grad_complexitate">Complexitate: <span class="val-complexitate"><%- serv.grad_complexitate%></span></p>
                             <p class="durata">Durata: <span class="val-durata"><%- serv.durata%></span></p>
                         </div>
@@ -81,8 +108,8 @@
                 <% }%>
             </div>
         </section>
-    </main>
 
+    </main>
     <%- include("../fragmente/footer") %>
     </body>
 </html>

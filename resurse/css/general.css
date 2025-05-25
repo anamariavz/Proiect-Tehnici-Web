@@ -18,6 +18,25 @@ body{
     --padding-text: 15px;
 }
 
+body.dark {
+    --spatiere-pagina: 80px;
+    --culoare-background1: #3A1F24;     
+    --culoare-deschisa: #F3A68A;        
+    --culoare-inchisa1: #691B1E;        
+    --culoare-margini: #AFA7A3;         
+    --culoare1: #E28570;                
+    --culoare2: #F9BFA8;                
+    --culoare-background2: #2A191D;     
+    --culoare4: #DAD2CF;                
+    --culoare-inchisa2: #F7F2EF;        
+    background-color: var(--culoare-background2);
+    color: var(--culoare-inchisa2);
+    background-size: cover;
+    --padding-text: 15px;
+}
+
+
+
 h2{
     font-size: 1.6rem;
 }

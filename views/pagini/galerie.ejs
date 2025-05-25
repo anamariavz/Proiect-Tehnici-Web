@@ -44,28 +44,28 @@
                 const scale = nr;
 
                 function updateTransform() {
-                const row = Math.floor(index / nr);
-                const col = index % nr;
+                    const row = Math.floor(index / nr);
+                    const col = index % nr;
 
-                const tx = `${(0.5 - (col + 0.5) / nr) * 100}%`;
-                const ty = `${(0.5 - (row + 0.5) / nr) * 100}%`;
+                    const tx = `${(1 - (col + 1) / nr) * 100}%`;
+                    const ty = `${(1 - (row + 1) / nr) * 100}%`;
 
-                grid.style.setProperty('--tx', tx);
-                grid.style.setProperty('--ty', ty);
-                grid.style.setProperty('--scale', scale);
+                    grid.style.setProperty('--tx', tx);
+                    grid.style.setProperty('--ty', ty);
+                    grid.style.setProperty('--scale', scale);
                 }
 
                 function animate() {
-                // Zoom out: arată tot gridul
-                grid.style.setProperty('--scale', '1');
-                grid.style.setProperty('--tx', '0%');
-                grid.style.setProperty('--ty', '0%');
+                    // Zoom out: arată tot gridul
+                    grid.style.setProperty('--scale', '1');
+                    grid.style.setProperty('--tx', '0%');
+                    grid.style.setProperty('--ty', '0%');
 
-                // După o scurtă pauză, zoom in pe următoarea imagine
-                setTimeout(() => {
-                    index = (index + 1) % patrate.length;
-                    updateTransform();
-                }, 500);
+                    // După o scurtă pauză, zoom in pe următoarea imagine
+                    setTimeout(() => {
+                        index = (index + 1) % patrate.length;
+                        updateTransform();
+                    }, 500);
                 }
 
                 // Inițial, afișează prima imagine mărită

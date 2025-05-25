@@ -223,7 +223,7 @@ app.get("/despre", function(req, res){
 
 
 app.get("/galerie", (req, res) => {
-    const toateImaginile = obGlobal.obImagini.imagini; // Folosește array-ul procesat
+    const toateImaginile = obGlobal.obImagini.imagini; // Foloseste array-ul procesat
 
     let optiuni = [4, 9, 16];
     let nrImagini = optiuni[Math.floor(Math.random() * optiuni.length)];
@@ -238,8 +238,8 @@ app.get("/galerie", (req, res) => {
     }
 
     res.render("pagini/galerie", {
-        imagini: toateImaginile,         // galeria statică (toate imaginile)
-        imaginiGalerie: imaginiSelectate // galeria animată/random
+        imagini: toateImaginile,         // galeria statica (toate imaginile)
+        imaginiGalerie: imaginiSelectate // galeria animata/random
     });
 });
 
@@ -278,24 +278,49 @@ app.get("/abc", function(req, res, next){
 app.get("/servicii", function(req, res){
     console.log(req.query)
     var conditieQuery=""; // TO DO where din parametri
+    if (req.query.categorie){
+    conditieQuery = ` where lower(categorie)=lower('${req.query.categorie}')`;
+    }
+    client.query("SELECT DISTINCT categorie FROM servicii ORDER BY categorie", function(err, rezCategorii){
+        
+        queryOptiuni="select * from unnest(enum_range(null::complexitate))"
+        client.query(queryOptiuni, function(err, rezOptiuni){
+            console.log(rezOptiuni)
 
 
-    queryOptiuni="select * from unnest(enum_range(null::complexitate))"
-    client.query(queryOptiuni, function(err, rezOptiuni){
-        console.log(rezOptiuni)
+            queryProduse="select * from servicii" + conditieQuery
+            client.query(queryProduse, function(err, rez){
+                if (err){
+                    console.log(err);
+                    afisareEroare(res, 2);
+                }
+                else{
+                    res.render("pagini/servicii", {
+                        servicii: rez.rows, 
+                        optiuni:rezOptiuni.rows,
+                        categorii: rezCategorii.rows,})
+                }
+            })
+        });
 
+    })    
+})
 
-        queryProduse="select * from servicii"
-        client.query(queryProduse, function(err, rez){
-            if (err){
-                console.log(err);
-                afisareEroare(res, 2);
+app.get("/serviciu/:id", function(req, res){
+    client.query(`select * from servicii where id=${req.params.id}`, function(err, rez){
+        if (err){
+            console.log(err);
+            afisareEroare(res, 2);
+        }
+        else{
+            if (rez.rowCount==0){                
+                afisareEroare(res, 404);
             }
             else{
-                res.render("pagini/servicii", {servicii: rez.rows, optiuni:rezOptiuni.rows})
+                res.render("pagini/serviciu", {serv: rez.rows[0]})
             }
-        })
-    });
+        }
+    })
 })
 
 // blocarea accesului direct la resurse cu eroare 403 

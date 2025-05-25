@@ -1,0 +1,93 @@
+#hamburger, #ch-menu {
+  display: none;
+}
+
+nav {
+  background-color: var(--culoare-background1);
+  --inaltime-meniu: 30px;
+  --latime-buton: 15rem;
+  height: var(--inaltime-meniu);
+}
+
+ul.meniu {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+ul.meniu li div.imag-icon {
+  display: none;
+}
+ul.meniu ul {
+  display: none;
+  list-style-type: none;
+  padding: 0;
+}
+ul.meniu li {
+  flex: 1;
+  width: var(--latime-buton);
+  height: var(--inaltime-meniu);
+  border: 1px solid var(--culoare-inchisa1);
+  box-sizing: border-box;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  line-height: var(--inaltime-meniu);
+  transition: background-color 0.5s ease, text-shadow 0.5s ease;
+}
+ul.meniu li:hover {
+  background-color: var(--culoare2);
+  text-shadow: 0px -10px 10px var(--culoare-inchisa1);
+}
+ul.meniu li ul {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s ease-in-out;
+  display: block;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-width: var(--latime-buton);
+  box-sizing: border-box;
+  position: absolute;
+}
+ul.meniu li:hover ul {
+  display: block;
+  background-color: var(--culoare-deschisa);
+  position: relative;
+  transform: scaleY(1);
+}
+ul.meniu li a {
+  position: relative;
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+  transition: color 0.3s ease;
+}
+ul.meniu li a::after {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--culoare-background2);
+  transition: width 0.3s ease;
+}
+ul.meniu li a:hover {
+  color: var(--culoare-background2);
+}
+ul.meniu li a:hover::after {
+  width: 100%;
+}
+ul.meniu li:hover > a, ul.meniu li:hover > div {
+  color: var(--culoare-background2);
+}
+ul.meniu a, ul.meniu div {
+  color: black;
+  text-decoration: none;
+  transition: all 1s linear;
+  display: block;
+  height: 100%;
+  cursor: pointer;
+}

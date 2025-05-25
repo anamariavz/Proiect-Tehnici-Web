@@ -1,3 +1,4 @@
+<script src ="/resurse/js/schimba_tema.js"></script>
 <header class="c1" id="titlu"> 
             <h1 class="header-title">Clinica Stomatologica - HappyDent</h1>
             <i class="fa-solid fa-tooth fa-spin" id="icon-dinte"></i>
@@ -27,12 +28,23 @@
                     <li><div id="Medici">Medici</div></li>
                     <li><div id="Servicii">Servicii</div>
                         <ul>
-                            <li><a href="/index#Edodonție">Edodonție</a></li>
-                            <li><a href="/index#Estetică%20Dentară">Estetică Dentară</a></li>
-                            <li><a href="/index#Implantologie">Implantologie</a></li>
-                            <li><a href="/index#Ortodențe">Ortodențe</a></li>
-                            <li><a href="/index#Profilaxie%20și%20Igienizare%20Dentară">Profilaxie și Igienizare Dentară</a></li>
-                            <li><a href="/index#Radiologie">Radiologie</a></li>
+                            <li><a href="/servicii">Toate</a></li>
+                            <!-- <li><a href="/servicii?categorie=Edodontie">Edodonție</a></li>
+                            <li><a href="/servicii?categorie=Estetică%20Dentară">Estetică Dentară</a></li>
+                            <li><a href="/servicii?categorie=Implantologie">Implantologie</a></li>
+                            <li><a href="/servicii?categorie=Ortodențe">Ortodențe</a></li>
+                            <li><a href="/servicii?categorie=Profilaxie%20%C8%99i%20Igienizare%20Dentară">Profilaxie și Igienizare Dentară</a></li> 
+                            %C8%99i cu asta am inlocuit si
+                            <li><a href="/servicii?categorie=Radiologie">Radiologie</a></li> -->
+                            <% if (typeof categorii !== "undefined") { %>
+                                <% for(let cat of categorii) { %>
+                                    <li>
+                                        <a href="/servicii?categorie=<%- encodeURIComponent(cat.categorie) %>">
+                                            <%- cat.categorie %>
+                                        </a>
+                                    </li>
+                                <% } %>
+                            <% } %>
                         </ul>
                     </li>
                     <li><div id="Tarife">Tarife</div></li>
@@ -44,6 +56,6 @@
                             <li><a href="/index#Progra%20de%20lucru">Program de lucru</a></li>
                         </ul>
                     </li>    
-                    
+                    <li><button id = "schimba_tema">Tema</button></li>
                 </ul>
             </nav>
