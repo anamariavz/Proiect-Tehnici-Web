@@ -13,67 +13,126 @@
     <body>
         <%- include("../fragmente/header") %> 
     <main>
-        <label> Nume: 
-            <input type="text" id="inp-nume" list="lista-servicii">
-            <ul id="lista-sugestii" class="autocomplete-list"></ul>
-        </label>
+        <div class ="continer mt-5">
+            <div class="row justify-content-center mb-3">
+                <div class="col-12 col-md-8">
+                    <div class="input-group">
+                        <span class="input-group-text bg-white">
+                            <i class="bi bi-search"></i>
+                        </span>
+                        <input type="text" id="inp-nume" list="lista-servicii" class="form-control form-control-lg" placeholder="Caută după nume serviciu">
+                        <ul id="lista-sugestii" class="autocomplete-list"></ul>
+                    </div>
+                    <datalist id="lista-servicii">
+                        <% for (let serv of locals.servicii) { %>
+                            <option value="<%- serv.nume %>">
+                        <% } %>
+                    </datalist>
+                </div>
+            </div>   
+    
+        <div class="row justify-content-center mb-3">
+            <div class="col-12 col-md-4 d-flex justify-content-center mb-2 mb-md-0">
+                <div class="btn-group" role="group" aria-label="Anestezie">
+                    <input type="radio" class="btn-check" name="gr_anestezie" id="i_rad1" value="true" autocomplete="off">
+                    <label class="btn btn-outline-primary btn-sm btn-super-sm" for="i_rad1">Cu anestezie</label>
 
-        <datalist id="lista-servicii">
-            <% for (let serv of locals.servicii) { %>
-                <option value="<%- serv.nume %>">
-            <% } %>
-        </datalist>        
-        
-        <div> Anestezie:
-            <p>
-                <label>Cu anestezie
-                    <input id="i_rad1" name="gr_anestezie" value="true" type="radio"/>
-                </label>
-            </p>
-            <p>
-                <label>Fără anestezie
-                    <input id="i_rad2" name="gr_anestezie" value="false" type="radio"/>
-                </label>
-            </p>
-            <p>
-                <label>Toate
-                    <input id="i_rad3" checked name="gr_anestezie" value="toate" type="radio"/>
-                </label>
-            </p>
+                    <input type="radio" class="btn-check" name="gr_anestezie" id="i_rad2" value="false" autocomplete="off">
+                    <label class="btn btn-outline-primary btn-sm btn-super-sm" for="i_rad2">Fără anestezie</label>
+
+                    <input type="radio" class="btn-check" name="gr_anestezie" id="i_rad3" value="toate" autocomplete="off" checked>
+                    <label class="btn btn-outline-primary btn-sm btn-super-sm" for="i_rad3">Toate</label>
+                </div>
+            </div>    
+
+            <div class="col-12 col-md-8 d-flex justify-content-center align-items-center mb-2 mb-md-0 flex-wrap">
+                <label class="form-label mb-0 me-2" for="inp-pret">Pret minim:</label>
+                <input type="range" id="inp-pret" value="0" min="0" max="20000" class="form-range w-25 me-3">
+                <span id="infoRange" class="me-3">(0)</span>
+                <label class="form-label mb-0 me-2" for="inp-complexitate">Complexitate:</label>
+                <select id="inp-complexitate" class="form-select w-auto">
+                    <option id="sel-toate" selected value="toate">toate</option>
+                    <% for (let opt of locals.optiuni) { %>
+                    <option value="<%- opt.unnest %>"><%- opt.unnest %></option>
+                    <% } %>
+                </select>
+            </div>
         </div>
 
-
-        <label> Pret minim: <input type="range" id="inp-pret" value="0" min="0"  max="20000"> <span id="infoRange">(0)</span></label>
-        <label>Select simplu:
-            <select id="inp-complexitate">
-                <option id="sel-toate" selected value="toate">toate</option>
-                <% for (let opt of locals.optiuni) { %>
-                    <option value="<%- opt.unnest %>"><%- opt.unnest %></option>
-                <% } %>
-            </select>
-        </label>
-
-        <label for="preturi">Selectează intervale de preț:</label><br>
-            <select id="preturi" multiple size="6">
+        <!-- <div class="row justify-content-center mb-3"> -->
+        <div class="row justify-content-center mb-3">
+            <!-- Col select mai îngust -->
+            <div class="col-12 col-md-4 d-flex flex-column justify-content-center">
+                <label for="preturi" class="form-label">Selectează intervale de preț:</label>
+                <select id="preturi" multiple size="6" class="form-select w-75 h-50">
                 <option value="30-200">30 - 200 lei</option>
                 <option value="200-1500">200 - 1500 lei</option>
                 <option value="1500-2000">1500 - 2000 lei</option>
                 <option value="2000-5000">2000 - 5000 lei</option>
                 <option value="5000-10000">5000 - 10000 lei</option>
                 <option value="10000-15000">10000 - 15000 lei</option>
-            </select>
+                </select>
+            </div>
 
-        <textarea id="commentBox" placeholder="Ex: +imagine -implant"></textarea>
-        <button id="filtrare-cuvinte">Filtrează după cuvinte cheie</button>
+            <!-- Col textarea care se întinde pe restul rândului -->
+            <div class="col-12 col-md-8 d-flex align-items-center">
+                <div class="form-floating w-100">
+                <textarea class="form-control h-50" id="commentBox" placeholder="Cuvinte cheie"></textarea>
+                <label for="commentBox">Cuvinte cheie</label>
+                <div class="invalid-feedback">
+                    Introdu cuvinte cheie valide (ex: +imagine -implant).
+                </div>
+                </div>
+            </div>
+        </div>
 
         <p>
-        <button id="filtrare">Filtreaza</button> 
+        <!-- <button id="filtrare">Filtreaza</button>  -->
+        <!-- <button id="filtrare" class="btn btn-primary d-flex align-items-center">
+            <i class="bi bi-funnel"></i>
+            <span class="d-none d-sm-inline ms-2">Filtrare</span>
+        </button> -->
 
-        <button id="resetare">Reseteaza</button><br/>
+        <!-- <button id="resetare">Reseteaza</button><br/>
         <button id="sortCrescNume">Sorteaza crescator dupa pret si nume</button>
         <button id="sortDescrescNume">Sorteaza descrescator dupa pret si nume</button>
-        
-        </p>
+         -->
+
+        <!-- <button id="sortCrescNume" class="btn btn-secondary d-flex align-items-center">
+            <i class="bi bi-sort-alpha-down"></i>
+            <span class="d-none d-sm-inline ms-2">Sorteaza crescator dupa pret si nume</span>
+        </button>
+        <button id="sortDescrescNume" class="btn btn-secondary d-flex align-items-center">
+            <i class="bi bi-sort-alpha-up"></i>
+            <span class="d-none d-sm-inline ms-2">Sorteaza descrescator dupa pret si nume</span>
+        </button>
+        <button id="resetare" class="btn btn-danger d-flex align-items-center">
+            <i class="bi bi-arrow-counterclockwise"></i>
+            <span class="d-none d-sm-inline ms-2">Resetare</span>
+        </button>
+        </p> -->
+
+        <div class="row justify-content-center mb-4">
+            <div class="col-12 d-flex justify-content-center flex-wrap gap-2">
+                <button id="filtrare" class="btn btn-primary d-flex align-items-center">
+                    <i class="bi bi-funnel"></i>
+                    <span class="d-none d-sm-inline ms-2">Filtrare</span>
+                </button>
+                <button id="sortCrescNume" class="btn btn-secondary d-flex align-items-center">
+                    <i class="bi bi-sort-alpha-down"></i>
+                    <span class="d-none d-sm-inline ms-2">Sorteaza crescator dupa pret si nume</span>
+                </button>
+                <button id="sortDescrescNume" class="btn btn-secondary d-flex align-items-center">
+                    <i class="bi bi-sort-alpha-up"></i>
+                    <span class="d-none d-sm-inline ms-2">Sorteaza descrescator dupa pret si nume</span>
+                </button>
+                <button id="resetare" class="btn btn-danger d-flex align-items-center">
+                    <i class="bi bi-arrow-counterclockwise"></i>
+                    <span class="d-none d-sm-inline ms-2">Resetare</span>
+                </button>
+            </div>
+        </div>
+    </div>
       
         <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
         
@@ -100,10 +159,10 @@
                                 <img src="/resurse/imagini/servicii/<%- serv.imagine %>" alt="Imagine <%- serv.nume %>" />
                             </figure>
                         </div>
-                        <label class="selecteaza-cos">
-                            Selectează:<br/>
-                            <input type="checkbox" class="select-cos" value="<%-serv.id %>" autocomplete="off">
-                        </label>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="btn-check select-cos" id="select-cos-<%-serv.id%>" autocomplete="off">
+                            <label class="btn btn-outline-success" for="select-cos-<%-serv.id%>">Selectează</label>
+                        </div>
                     </article>
                 <% }%>
             </div>

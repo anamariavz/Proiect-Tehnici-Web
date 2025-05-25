@@ -1,4 +1,49 @@
+function filtreazaDupaCuvinte() {
+    const val = document.getElementById("commentBox").value.trim();
+    const plus = [];
+    const minus = [];
+    val.split(/\s+/).forEach(cuv => {
+        if (cuv.startsWith("+") && cuv.length > 1)
+            plus.push(cuv.substring(1).toLowerCase());
+        else if (cuv.startsWith("-") && cuv.length > 1)
+            minus.push(cuv.substring(1).toLowerCase());
+    });
+
+    let servicii = document.getElementsByClassName("serviciu");
+    for (let serv of servicii) {
+        let descriere = serv.querySelector(".descriere").innerText.toLowerCase();
+        let arePlus = plus.length === 0 ? true : plus.some(cuv => descriere.includes(cuv));
+        let areMinus = minus.some(cuv => descriere.includes(cuv));
+        serv.style.display = (arePlus && !areMinus) ? "block" : "none";
+    }
+
+}
+
+function validareTextarea() {
+    const commentBox = document.getElementById("commentBox");
+    const val = commentBox.value.trim();
+    if (val === "") {
+        // E gol, deci e valid (nu afișăm mesaj)
+        commentBox.classList.remove("is-invalid");
+        return true;
+    }
+    // Verifică fiecare cuvânt
+    const cuvinte = val.split(/\s+/);
+    const toateValide = cuvinte.every(cuv => cuv.startsWith("+") || cuv.startsWith("-"));
+    if (!toateValide) {
+        commentBox.classList.add("is-invalid");
+        return false;
+    } else {
+        commentBox.classList.remove("is-invalid");
+        return true;
+    }
+}
+
 window.onload = function(){
+    const commentBox = document.getElementById("commentBox");
+    const commentLabel = commentBox.nextElementSibling;
+
+    
     btn = document.getElementById("filtrare");
     btn.onclick = function(){   
         let inpNume = document.getElementById("inp-nume").value.trim().toLowerCase()
@@ -19,6 +64,12 @@ window.onload = function(){
 
         if (niciunFiltru) {
             alert("Completează cel puțin un filtru pentru a efectua filtrarea!");
+            return;
+        }
+
+        document.getElementById("commentBox").addEventListener("input", validareTextarea);
+        if (!validareTextarea()) {
+            commentBox.focus();
             return;
         }
 
@@ -56,6 +107,8 @@ window.onload = function(){
                 
             }
        }
+
+       commentBox.addEventListener("input", validareTextarea);
     }  
 
     document.getElementById("inp-pret").onchange = function() {
@@ -158,11 +211,68 @@ window.onload = function(){
             listaSugestii.style.display = "block";
         }
     });
+        
+    document.getElementById("commentBox").addEventListener("input", filtreazaDupaCuvinte);
 
 }
 
+// document.addEventListener("DOMContentLoaded", function() {
+//     const switchTema = document.getElementById("switch-tema");
+//     const iconTema = document.getElementById("icon-tema");
 
-window.addEventListener("load", function() {
+//     // Inițializare după tema curentă
+//     function setIcon() {
+//         if(document.body.classList.contains("dark")) {
+//             iconTema.classList.remove("bi-sun");
+//             iconTema.classList.add("bi-moon");
+//         } else {
+//             iconTema.classList.remove("bi-moon");
+//             iconTema.classList.add("bi-sun");
+//         }
+//     }
+//     setIcon();
+
+//     switchTema.checked = document.body.classList.contains("dark");
+
+//     switchTema.addEventListener("change", function() {
+//         document.body.classList.toggle("dark");
+//         setIcon();
+//         // Dacă ai și localStorage pentru temă, adaugă aici
+//     });
+// });
+
+// window.addEventListener("load", function() {
+//     const imaginiBackgroundLight = [
+//         '/resurse/imagini/bg1.1.jpeg',
+//         '/resurse/imagini/bg2.2.jpeg',
+//         '/resurse/imagini/bg3.3.jpeg'
+//     ];
+//     const imaginiBackgroundDark = [
+//         '/resurse/imagini/bg1_dark.png',
+//         '/resurse/imagini/bg2_dark.png',
+//         '/resurse/imagini/bg3_dark.png'
+//     ];
+//     let index = 0;
+
+//     function setBackground() {
+//         let isDark = document.body.classList.contains("dark");
+//         let imagini = isDark ? imaginiBackgroundDark : imaginiBackgroundLight;
+//         document.body.style.backgroundImage = `url('${imagini[index]}')`;
+//     }
+//     setBackground();
+//     setInterval(() => {
+//         index = (index + 1) % imaginiBackgroundLight.length;
+//         setBackground();
+//     }, 10000); // 60 secunde
+
+//     document.getElementById("schimba_tema")?.addEventListener("click", function() {
+
+//     });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const switchTema = document.getElementById("switch-tema");
+    const iconTema = document.getElementById("icon-tema");
+
     const imaginiBackgroundLight = [
         '/resurse/imagini/bg1.1.jpeg',
         '/resurse/imagini/bg2.2.jpeg',
@@ -173,43 +283,60 @@ window.addEventListener("load", function() {
         '/resurse/imagini/bg2_dark.png',
         '/resurse/imagini/bg3_dark.png'
     ];
-    let index = 0;
+
+    // Citește indexul imaginii și tema din localStorage
+    let index = parseInt(localStorage.getItem("bg_index")) || 0;
+    const temaSalvata = localStorage.getItem("tema");
+
+    function setIcon() {
+        if(document.body.classList.contains("dark")) {
+            iconTema.classList.remove("bi-sun");
+            iconTema.classList.add("bi-moon");
+        } else {
+            iconTema.classList.remove("bi-moon");
+            iconTema.classList.add("bi-sun");
+        }
+    }
 
     function setBackground() {
         let isDark = document.body.classList.contains("dark");
         let imagini = isDark ? imaginiBackgroundDark : imaginiBackgroundLight;
         document.body.style.backgroundImage = `url('${imagini[index]}')`;
     }
+
+    // Aplică tema la încărcare
+    if (temaSalvata === "dark") {
+        document.body.classList.add("dark");
+        switchTema.checked = true;
+    } else {
+        document.body.classList.remove("dark");
+        switchTema.checked = false;
+    }
+    setIcon();
     setBackground();
+
+    switchTema.addEventListener("change", function() {
+        document.body.classList.toggle("dark");
+        localStorage.setItem("tema", document.body.classList.contains("dark") ? "dark" : "light");
+        setIcon();
+        setBackground();
+    });
+
     setInterval(() => {
         index = (index + 1) % imaginiBackgroundLight.length;
+        localStorage.setItem("bg_index", index);
         setBackground();
-    }, 10000); // 60 secunde
+    }, 10000);
 
+    // Dacă ai și un alt buton "schimba_tema"
     document.getElementById("schimba_tema")?.addEventListener("click", function() {
-
+        document.body.classList.toggle("dark");
+        switchTema.checked = document.body.classList.contains("dark");
+        localStorage.setItem("tema", document.body.classList.contains("dark") ? "dark" : "light");
+        setIcon();
+        setBackground();
     });
-
-    document.getElementById("filtrare-cuvinte").onclick = function() {
-    const val = document.getElementById("commentBox").value.trim();
-    const plus = [];
-    const minus = [];
-    val.split(/\s+/).forEach(cuv => {
-        if (cuv.startsWith("+") && cuv.length > 1)
-            plus.push(cuv.substring(1).toLowerCase());
-        else if (cuv.startsWith("-") && cuv.length > 1)
-            minus.push(cuv.substring(1).toLowerCase());
-    });
-
-    let servicii = document.getElementsByClassName("serviciu");
-    for (let serv of servicii) {
-        let descriere = serv.querySelector(".descriere").innerText.toLowerCase();
-        let arePlus = plus.length === 0 ? true : plus.some(cuv => descriere.includes(cuv));
-        let areMinus = minus.some(cuv => descriere.includes(cuv));
-        serv.style.display = (arePlus && !areMinus) ? "block" : "none";
-        }
-    }
-
 });
+
 
   

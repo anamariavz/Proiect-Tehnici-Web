@@ -11854,16 +11854,6 @@ h1 {
   border-width: 3px;
 }
 
-.btn-group,
-.btn-group .btn {
-  height: 2.4rem;
-  min-height: 2.4rem;
-  display: flex;
-  align-items: center;
-  padding-top: 0;
-  padding-bottom: 0;
-}
-
 .btn-super-sm {
   padding: 0.15rem 0.5rem;
   font-size: 0.95rem;

@@ -15,7 +15,12 @@
   $headings-color: #691B1E,
   $font-family-base: "Satisfy, cursive",
   $headings-font-weight: 600,
-  $headings-line-height: 2
+  $headings-line-height: 2,
+  $form-range-thumb-width: 1.5em, // 50% mai mare decât font-size-ul implicit (1em)
+  $form-range-thumb-height: 1.5em,
+  $form-range-thumb-bg: #F9A68B, // culoarea bulinei
+  $form-range-track-bg: #691B1E, // culoarea sliderului
+  $form-range-thumb-border: 2px solid #691B1E // opțional, border pentru bulină
 );
 
 
@@ -24,4 +29,29 @@ h1 {
   font-weight: 500;
 }
 
+$btn-border-radius: 1.5rem;
+$btn-border-width: 3px;
 
+.btn {
+  border-radius: $btn-border-radius;
+  border-width: $btn-border-width;
+}
+
+.btn-group,
+.btn-group .btn {
+    height: 2.4rem; // sau folosește exact cât are .form-select (de obicei 2.4rem sau 2.375rem)
+    min-height: 2.4rem;
+    display: flex;
+    align-items: center;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.btn-super-sm {
+    padding: 0.15rem 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    height: 2.4rem; // ajustează după cât de mic vrei
+    display: inline-flex;
+    align-items: center;
+}
