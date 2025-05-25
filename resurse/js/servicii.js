@@ -216,59 +216,6 @@ window.onload = function(){
 
 }
 
-// document.addEventListener("DOMContentLoaded", function() {
-//     const switchTema = document.getElementById("switch-tema");
-//     const iconTema = document.getElementById("icon-tema");
-
-//     // Inițializare după tema curentă
-//     function setIcon() {
-//         if(document.body.classList.contains("dark")) {
-//             iconTema.classList.remove("bi-sun");
-//             iconTema.classList.add("bi-moon");
-//         } else {
-//             iconTema.classList.remove("bi-moon");
-//             iconTema.classList.add("bi-sun");
-//         }
-//     }
-//     setIcon();
-
-//     switchTema.checked = document.body.classList.contains("dark");
-
-//     switchTema.addEventListener("change", function() {
-//         document.body.classList.toggle("dark");
-//         setIcon();
-//         // Dacă ai și localStorage pentru temă, adaugă aici
-//     });
-// });
-
-// window.addEventListener("load", function() {
-//     const imaginiBackgroundLight = [
-//         '/resurse/imagini/bg1.1.jpeg',
-//         '/resurse/imagini/bg2.2.jpeg',
-//         '/resurse/imagini/bg3.3.jpeg'
-//     ];
-//     const imaginiBackgroundDark = [
-//         '/resurse/imagini/bg1_dark.png',
-//         '/resurse/imagini/bg2_dark.png',
-//         '/resurse/imagini/bg3_dark.png'
-//     ];
-//     let index = 0;
-
-//     function setBackground() {
-//         let isDark = document.body.classList.contains("dark");
-//         let imagini = isDark ? imaginiBackgroundDark : imaginiBackgroundLight;
-//         document.body.style.backgroundImage = `url('${imagini[index]}')`;
-//     }
-//     setBackground();
-//     setInterval(() => {
-//         index = (index + 1) % imaginiBackgroundLight.length;
-//         setBackground();
-//     }, 10000); // 60 secunde
-
-//     document.getElementById("schimba_tema")?.addEventListener("click", function() {
-
-//     });
-
 document.addEventListener("DOMContentLoaded", function() {
     const switchTema = document.getElementById("switch-tema");
     const iconTema = document.getElementById("icon-tema");
@@ -337,6 +284,5 @@ document.addEventListener("DOMContentLoaded", function() {
         setBackground();
     });
 });
-
 
   

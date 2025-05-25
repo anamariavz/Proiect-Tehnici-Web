@@ -1,0 +1,7 @@
+@use "../../node_modules/bootstrap/scss/bootstrap" with (
+  $form-range-thumb-width: 1.5em,
+  $form-range-thumb-height: 1.5em,
+  $form-range-thumb-bg: #F9A68B,
+  $form-range-track-bg: #691B1E,
+  $form-range-thumb-border: 2px solid #691B1E
+);

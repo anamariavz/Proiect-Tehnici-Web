@@ -54,9 +54,7 @@ ul.meniu li ul {
 ul.meniu li:hover ul {
   display: block;
   background-color: var(--culoare-deschisa);
-  /* position: relative; */
-  position: absolute;
-  z-index: 9999;
+  position: relative;
   transform: scaleY(1);
 }
 ul.meniu li a {

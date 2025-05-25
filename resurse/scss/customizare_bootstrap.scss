@@ -37,15 +37,7 @@ $btn-border-width: 3px;
   border-width: $btn-border-width;
 }
 
-.btn-group,
-.btn-group .btn {
-    height: 2.4rem; // sau folosește exact cât are .form-select (de obicei 2.4rem sau 2.375rem)
-    min-height: 2.4rem;
-    display: flex;
-    align-items: center;
-    padding-top: 0;
-    padding-bottom: 0;
-}
+
 
 .btn-super-sm {
     padding: 0.15rem 0.5rem;
