@@ -9,7 +9,7 @@
         <link href="/resurse/css/serviciu.css" type="text/css" rel="stylesheet" />
     </head>
     <body>
-        
+        <%- include("../fragmente/header") %>         
     <main>
         <section>
             <h2>Pagină serviciu</h2>
@@ -30,6 +30,20 @@
                 </article>
             
         </section>
+
+    <h3>Produse similare</h3>
+        <div class="similare">
+            <% produse_similare.forEach(p => { %> 
+                <div class="produs-similar">
+                    <a href="/serviciu/<%= p.id %>">
+                        <img src="/resurse/imagini/servicii/<%= p.imagine %>" alt="<%= p.nume %>" width="150">
+                        <p><%= p.nume %></p>
+                    </a>
+                </div>
+            <% }) %>
+        </div>
+
+    
     </main>
 
     <%- include("../fragmente/footer") %>

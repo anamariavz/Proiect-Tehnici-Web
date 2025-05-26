@@ -1,5 +1,9 @@
+function normalizeText(text) {
+    return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
 function filtreazaDupaCuvinte() {
-    const val = document.getElementById("commentBox").value.trim();
+    const val = normalizeText(document.getElementById("commentBox").value.trim());
     const plus = [];
     const minus = [];
     val.split(/\s+/).forEach(cuv => {
@@ -11,7 +15,7 @@ function filtreazaDupaCuvinte() {
 
     let servicii = document.getElementsByClassName("serviciu");
     for (let serv of servicii) {
-        let descriere = serv.querySelector(".descriere").innerText.toLowerCase();
+        let descriere = normalizeText(serv.querySelector(".descriere").innerText);
         let arePlus = plus.length === 0 ? true : plus.some(cuv => descriere.includes(cuv));
         let areMinus = minus.some(cuv => descriere.includes(cuv));
         serv.style.display = (arePlus && !areMinus) ? "block" : "none";
@@ -23,11 +27,11 @@ function validareTextarea() {
     const commentBox = document.getElementById("commentBox");
     const val = commentBox.value.trim();
     if (val === "") {
-        // E gol, deci e valid (nu afișăm mesaj)
+        // E gol, deci e valid (nu afisam mesaj)
         commentBox.classList.remove("is-invalid");
         return true;
     }
-    // Verifică fiecare cuvânt
+    // Verifica fiecare cuvant
     const cuvinte = val.split(/\s+/);
     const toateValide = cuvinte.every(cuv => cuv.startsWith("+") || cuv.startsWith("-"));
     if (!toateValide) {
@@ -39,21 +43,27 @@ function validareTextarea() {
     }
 }
 
-window.onload = function(){
+// window.onload = function(){
+    
+// }
+
+document.addEventListener("DOMContentLoaded", function() {
+
     const commentBox = document.getElementById("commentBox");
     const commentLabel = commentBox.nextElementSibling;
 
     
     btn = document.getElementById("filtrare");
     btn.onclick = function(){   
-        let inpNume = document.getElementById("inp-nume").value.trim().toLowerCase()
+        let inpNume = normalizeText(document.getElementById("inp-nume").value.trim());
         let vectRadio = document.getElementsByName("gr_anestezie")
         let inpPret = document.getElementById("inp-pret").value
         let inpPretMin = document.getElementById("inp-pret").min
         let inpComplexitate = document.getElementById("inp-complexitate").value.trim().toLowerCase()
         let commentBox = document.getElementById("commentBox").value.trim().toLowerCase()
+        
     
-        // verifică dacă toate filtrele sunt la valorile implicite
+        // verifica daca toate filtrele sunt la valorile implicite
         let niciunFiltru = (
             inpNume === "" &&
             Array.from(vectRadio).some(r => r.checked && r.value === "toate") &&
@@ -74,7 +84,7 @@ window.onload = function(){
         }
 
        let inpAnestezie = null;
-    //    let vectRadio = document.getElementsByName("gr_anestezie")
+    
             for (let rad of vectRadio){
                 if (rad.checked){
                     inpAnestezie = rad.value;
@@ -82,15 +92,10 @@ window.onload = function(){
                 }
             }             
         
-    //    let inpPret = document.getElementById("inp-pret").value
-
-    //    let inpComplexitate = document.getElementById("inp-complexitate").value.trim().toLowerCase()
-
        let servicii = document.getElementsByClassName("serviciu")
        for (let serv of servicii){
             serv.style.display = "none"
-            let nume = serv.getElementsByClassName("val-nume")[0].innerHTML.trim().toLowerCase()
-
+            let nume = normalizeText(serv.getElementsByClassName("val-nume")[0].innerHTML.trim());
             let cond1 = (nume.startsWith(inpNume))
 
             let anestezie = serv.getElementsByClassName("val-anestezie")[0]?.innerText.trim().toLowerCase();
@@ -109,6 +114,7 @@ window.onload = function(){
        }
 
        commentBox.addEventListener("input", validareTextarea);
+       afiseazaPagina(1); // Reafiseaza prima pagina dupa filtrare
     }  
 
     document.getElementById("inp-pret").onchange = function() {
@@ -128,6 +134,8 @@ window.onload = function(){
                 serv.style.display = "block";
             }
         }     
+
+        afiseazaPagina(1); // Reafiseaza prima pagina dupa resetare
     }
 
     document.getElementById("sortCrescNume").onclick = function() {
@@ -180,6 +188,7 @@ window.onload = function(){
                     }
                 }, 2000) // sterge dupa 2 secunde
             }
+            
         
         }
 
@@ -193,7 +202,7 @@ window.onload = function(){
         listaSugestii.innerHTML = "";
         listaSugestii.style.display = "none";
 
-        if (text.length < 1) return; // NU schimba această linie!
+        if (text.length < 1) return; // NU schimba aceasta linie!
 
         const potriviri = sugestii.filter(s => s.toLowerCase().includes(text));
 
@@ -214,9 +223,6 @@ window.onload = function(){
         
     document.getElementById("commentBox").addEventListener("input", filtreazaDupaCuvinte);
 
-}
-
-document.addEventListener("DOMContentLoaded", function() {
     const switchTema = document.getElementById("switch-tema");
     const iconTema = document.getElementById("icon-tema");
 
@@ -231,7 +237,7 @@ document.addEventListener("DOMContentLoaded", function() {
         '/resurse/imagini/bg3_dark.png'
     ];
 
-    // Citește indexul imaginii și tema din localStorage
+    // Citeste indexul imaginii si tema din localStorage
     let index = parseInt(localStorage.getItem("bg_index")) || 0;
     const temaSalvata = localStorage.getItem("tema");
 
@@ -251,7 +257,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.body.style.backgroundImage = `url('${imagini[index]}')`;
     }
 
-    // Aplică tema la încărcare
+    // Aplica tema la incarcare
     if (temaSalvata === "dark") {
         document.body.classList.add("dark");
         switchTema.checked = true;
@@ -275,7 +281,7 @@ document.addEventListener("DOMContentLoaded", function() {
         setBackground();
     }, 10000);
 
-    // Dacă ai și un alt buton "schimba_tema"
+    // Daca ai si un alt buton "schimba_tema"
     document.getElementById("schimba_tema")?.addEventListener("click", function() {
         document.body.classList.toggle("dark");
         switchTema.checked = document.body.classList.contains("dark");
@@ -283,6 +289,67 @@ document.addEventListener("DOMContentLoaded", function() {
         setIcon();
         setBackground();
     });
-});
 
+    const K = 6; // numar produse pe pagina 
+    const articole = Array.from(document.querySelectorAll(".serviciu"));
+    const paginareContainer = document.getElementById("paginare");
+    let paginaCurenta = 1;
+
+    function afiseazaPagina(pagina) {
+        // Ascunde toate articolele
+        articole.forEach(a => a.style.display = "none");
+        // Calculeaza intervalul de afisat
+        const start = (pagina - 1) * K;
+        const end = pagina * K;
+        articole.slice(start, end).forEach(a => a.style.display = "block");
+        paginaCurenta = pagina;
+        deseneazaPaginare();
+    }
+
+    function deseneazaPaginare() {
+        const N = articole.length;
+        const NRL = Math.ceil(N / K);
+        paginareContainer.innerHTML = "";
+        for (let i = 1; i <= NRL; i++) {
+            const btn = document.createElement("button");
+            btn.textContent = i;
+            btn.className = "btn btn-outline-primary mx-1" + (i === paginaCurenta ? " active" : "");
+            btn.onclick = () => afiseazaPagina(i);
+            paginareContainer.appendChild(btn);
+        }
+    }
+
+    // Initial, afiseaza prima pagina
+    afiseazaPagina(1);
+
+    document.querySelectorAll(".serviciu").forEach(serviciu => {
+        const id = serviciu.querySelector(".val-nume").textContent.trim(); // sau un alt identificator unic
+
+        const btnPin = serviciu.querySelector(".btn-pin");
+        const btnTemp = serviciu.querySelector(".btn-hide-temp");
+        const btnSession = serviciu.querySelector(".btn-hide-session");
+
+        // Verificare sessionStorage
+        if (sessionStorage.getItem(`hidden-${id}`)) {
+            serviciu.classList.add("hidden");
+        }
+
+        // PIN: pastreaza la filtrare
+        btnPin.addEventListener("click", () => {
+            const isPinned = serviciu.classList.toggle("pinned");
+            btnPin.classList.toggle("active", isPinned);
+        });
+
+        // Ascundere temporară
+        btnTemp.addEventListener("click", () => {
+            serviciu.classList.add("hidden");
+        });
+
+        // Ascundere permanenta pentru sesiune
+        btnSession.addEventListener("click", () => {
+            serviciu.classList.add("hidden");
+            sessionStorage.setItem(`hidden-${id}`, "true");
+        });
+    });
+});
   

@@ -276,6 +276,7 @@ app.get("/abc", function(req, res, next){
 
 // afisarea serviciilor din BD 
 app.get("/servicii", function(req, res){
+    
     console.log(req.query)
     var conditieQuery=""; // TO DO where din parametri
     if (req.query.categorie){
@@ -295,10 +296,25 @@ app.get("/servicii", function(req, res){
                     afisareEroare(res, 2);
                 }
                 else{
+                    const preturi = rez.rows.map(s => s.pret);
+                    const minPret = Math.min(...preturi);
+                    const maxPret = Math.max(...preturi);
+
+                    let intervalePret = [];
+                    let pas = 500;
+                    for(let i = minPret; i < maxPret; i += pas) {
+                        let end = Math.min(i + pas, maxPret);
+                        intervalePret.push({start: i, end: end});
+                    }
+
                     res.render("pagini/servicii", {
                         servicii: rez.rows, 
                         optiuni:rezOptiuni.rows,
-                        categorii: rezCategorii.rows,})
+                        categorii: rezCategorii.rows,
+                        minPret: minPret,
+                        maxPret: maxPret,
+                        intervalePret: intervalePret,
+                        produse_similare: []})
                 }
             })
         });
@@ -307,21 +323,37 @@ app.get("/servicii", function(req, res){
 })
 
 app.get("/serviciu/:id", function(req, res){
-    client.query(`select * from servicii where id=${req.params.id}`, function(err, rez){
-        if (err){
+    const id = req.params.id;
+
+    client.query(`SELECT * FROM servicii WHERE id = $1`, [id], function(err, rez){
+        if (err) {
             console.log(err);
             afisareEroare(res, 2);
+        } else if (rez.rowCount == 0) {
+            afisareEroare(res, 404);
+        } else {
+            const serviciu = rez.rows[0];
+
+            client.query(
+                `SELECT id, nume, imagine FROM servicii WHERE categorie = $1 AND id <> $2 LIMIT 4`,
+                [serviciu.categorie, id],
+                function(err2, rez2) {
+                    if (err2) {
+                        console.log(err2);
+                        afisareEroare(res, 2);
+                    } else {
+                        res.render("pagini/serviciu", {
+                            serv: serviciu,
+                            produse_similare: rez2.rows,
+                        });
+                    }
+                }
+            );
         }
-        else{
-            if (rez.rowCount==0){                
-                afisareEroare(res, 404);
-            }
-            else{
-                res.render("pagini/serviciu", {serv: rez.rows[0]})
-            }
-        }
-    })
-})
+    });
+});
+
+
 
 // blocarea accesului direct la resurse cu eroare 403 
 app.get(/^\/resurse\/[a-zA-Z0-9_\/]*$/, function(req, res, next){

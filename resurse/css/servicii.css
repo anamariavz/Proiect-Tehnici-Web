@@ -88,7 +88,7 @@ main {
     border: 1px solid var(--culoare-mov);
 }
 
-/* === DESCRIERE + IMAGINE LANGA === */
+
 .descriere-imagine {
     display: flex;
     gap: 1rem;
@@ -115,6 +115,20 @@ body {
     background-attachment: fixed;
     transition: background-image 1s ease-in-out;
   }
+
+.serviciu.pinned {
+    border: 2px solid green;
+    background-color: #044225;
+}
+.serviciu.hidden {
+    display: none !important;
+}
+.actions-serviciu button.active {
+    background-color: green;
+    color: white;
+}
+
+
   
 
   

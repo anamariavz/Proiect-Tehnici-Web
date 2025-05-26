@@ -33,6 +33,24 @@ h2{
     width:50%;
     height:auto;
 }
+
+.similare {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem; /* spațiu între imagini, opțional */
+    flex-wrap: nowrap; /* sau wrap dacă vrei să treacă pe rândul următor la overflow */
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.similare img {
+    width: 300px;   /* sau cât dorești, ex: 200px */
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px; /* opțional, colțuri rotunjite */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08); /* opțional, umbră */
+}
+
 @media screen and (max-width: 700px){
     #art-serviciu{
         margin:0 auto;
